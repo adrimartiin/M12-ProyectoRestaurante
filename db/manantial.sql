@@ -55,10 +55,10 @@ INSERT INTO rol (nombre_rol) VALUES
 
 -- Insertar empleados con la contraseña encriptada "qweQWE123"
 INSERT INTO empleado (codigo_empleado, nombre, apellidos, pwd, id_rol) VALUES
-('5512', 'Martin', 'Calvet', '$2y$10$5kdQvD9/nJgYHoG5USv8Iu5RvmQOz5n2f4gLT7Yf8Z8m5MxglxAva', 1), -- qweQWE123 encriptado
-('7746', 'Christian', 'Monrabal Donis', '$2y$10$5kdQvD9/nJgYHoG5USv8Iu5RvmQOz5n2f4gLT7Yf8Z8m5MxglxAva', 2), -- qweQWE123 encriptado
-('1594', 'Alejandro', 'González Fernández', '$2y$10$5kdQvD9/nJgYHoG5USv8Iu5RvmQOz5n2f4gLT7Yf8Z8m5MxglxAva', 1), -- qweQWE123 encriptado
-('9073', 'Oriol', 'Godoy Morote', '$2y$10$5kdQvD9/nJgYHoG5USv8Iu5RvmQOz5n2f4gLT7Yf8Z8m5MxglxAva', 1); -- qweQWE123 encriptado
+('5512', 'Martin', 'Calvet', 'qweQWE123', 1), -- qweQWE123 encriptado
+('7746', 'Christian', 'Monrabal Donis', 'qweQWE123', 2), -- qweQWE123 encriptado
+('1594', 'Alejandro', 'González Fernández', 'qweQWE123', 1), -- qweQWE123 encriptado
+('9073', 'Oriol', 'Godoy Morote', 'qweQWE123', 1); -- qweQWE123 encriptado
 
 -- Insertar salas
 INSERT INTO sala (nombre_sala, ubicacion, capacidad) VALUES
