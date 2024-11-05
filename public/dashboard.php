@@ -24,7 +24,7 @@ $nombre_empleado = "Nombre del Empleado"; // Aquí deberías obtener el nombre r
     <div class="navbar">
         <h1>El Manantial</h1>
         <div class="user-info">
-            <span><?php echo $nombre_empleado; ?></span>
+            <span><?php echo $_SESSION["nombre_usuario"]; ?></span>
             <div class="dropdown">
                 <i class="fas fa-user-circle" style="font-size: 24px;"></i>
                 <div class="dropdown-content">

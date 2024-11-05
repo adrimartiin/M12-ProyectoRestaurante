@@ -13,16 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $codigo_empleado = mysqli_real_escape_string($conn, $codigo_empleado);
-    $sql = "SELECT * FROM empleado WHERE codigo_empleado = '$codigo_empleado'";
+    $sql = "SELECT * FROM tbl_camarero WHERE codigo_camarero = '$codigo_empleado'";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $usuario = mysqli_fetch_assoc($result);
-
-            if ($pwd === $usuario['pwd']) {
+            // Usamos password_verify para verificar la contraseña
+            if (password_verify($pwd, $usuario['password_camarero'])) {
                 $_SESSION['loggedin'] = true;
-                $_SESSION['usuario_id'] = $usuario['id_empleado'];
+                $_SESSION['usuario_id'] = $usuario['id_camarero'];
+                $_SESSION['nombre_usuario'] = $usuario['nombre_camarero'];
                 header("Location: ../public/dashboard.php");
                 exit();
             } else {
@@ -45,3 +46,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
