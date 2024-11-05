@@ -105,6 +105,13 @@ body {
     width: 20%;
 }
 
+.error-message{
+    color: red;
+}
+.error-border{
+    border: 2px solid red !important;
+}
+
 @media (max-width: 600px) {
     .restaurant-name {
         font-size: 2rem;

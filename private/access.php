@@ -7,11 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codigo_empleado = trim($_POST['codigo_empleado']);
     $pwd = trim($_POST['pwd']);
 
-    // Guarda los valores ingresados en variables de sesión para mostrarlos en caso de error
     $_SESSION['codigo_empleado'] = $codigo_empleado;
     $_SESSION['pwd'] = $pwd;
 
-    // Verificación de campos vacíos
     if (empty($codigo_empleado) || empty($pwd)) {
         $_SESSION['error'] = "Ambos campos son obligatorios.";
         header("Location: ../public/login.php");
@@ -27,13 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_num_rows($result) > 0) {
             $usuario = mysqli_fetch_assoc($result);
 
-            // Verificación de la contraseña con password_verify
             if (password_verify($pwd, $usuario['password_camarero'])) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['usuario_id'] = $usuario['id_camarero'];
                 $_SESSION['nombre_usuario'] = $usuario['nombre_camarero'];
 
-                // Limpia las variables de sesión de los datos ingresados al iniciar sesión correctamente
                 unset($_SESSION['codigo_empleado']);
                 unset($_SESSION['pwd']);
                 unset($_SESSION['error']);
@@ -60,5 +56,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
-
-
