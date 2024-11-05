@@ -8,14 +8,15 @@ body {
 .navbar {
     background-color: #333;
     color: #fff;
-    padding: 15px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar h1 {
-    margin: 0;
+.icon {
+    height: 60px;
+    width: 40px;
 }
 
 .navbar .user-info {
@@ -24,7 +25,11 @@ body {
 }
 
 .navbar .user-info span {
-    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.dropdown i {
+    margin-right: 15px;
 }
 
 .dropdown {
@@ -79,24 +84,29 @@ body {
     height: 100%;
 }
 
-.option h3 {
+.option h2 {
     margin: 0;
     padding: 10px;
     text-decoration: none;
 }
 
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
 .option button {
-    margin-top: 10px;
     padding: 10px 20px;
     border: none;
-    background-color: #28a745;
+    background-color: #d4a373;
     color: white;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .option button:hover {
-    background-color: #218838;
+    background-color: #d4a373;
 }
 
 .option.terraza {
@@ -109,4 +119,51 @@ body {
 
 .option.privadas {
     background-image: url('../img/privada.jpg');
+}
+
+.extra-buttons {
+    display: none;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.extra-buttons button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    background-color: #d4a373;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.extra-buttons button:hover {
+    background-color: #d4a373;
+}
+
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .option {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .option h2 {
+        font-size: 1.5em;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .user-info {
+        margin-top: 10px;
+    }
 }
