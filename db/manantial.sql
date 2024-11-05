@@ -1,93 +1,89 @@
--- Crear base de datos
-CREATE DATABASE IF NOT EXISTS elmanantial;
-USE elmanantial;
+CREATE DATABASE db_restaurante;
 
--- Tabla roles
-CREATE TABLE rol (
-    id_rol INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_rol VARCHAR(50) NOT NULL
-);
-
--- Tabla empleados
-CREATE TABLE empleado (
-    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
-    codigo_empleado CHAR(4) NOT NULL UNIQUE,
+USE db_restaurante;
+-- Crear tablas
+CREATE TABLE tbl_cliente (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    pwd VARCHAR(255) NOT NULL,
-    id_rol INT,
-    FOREIGN KEY (id_rol) REFERENCES rol(id_rol)
+    num_personas INT NOT NULL
 );
 
--- Tabla salas
-CREATE TABLE sala (
-    id_sala INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_sala VARCHAR(50) NOT NULL,
-    ubicacion VARCHAR(50) NOT NULL,
-    capacidad INT NOT NULL
+CREATE TABLE tbl_sala (
+    id_sala INT PRIMARY KEY,
+    nombre_sala VARCHAR(25) NOT NULL,
+    tipo_sala ENUM('terraza', 'comedor', 'privada') NOT NULL,
+    capacidad_total INT NOT NULL
 );
 
--- Tabla taules
-CREATE TABLE taula (
-    id_taula INT AUTO_INCREMENT PRIMARY KEY,
-    id_sala INT,
-    numero_taula INT NOT NULL,
-    capacitat INT NOT NULL,
-    estat VARCHAR(10) DEFAULT 'lliure',
-    FOREIGN KEY (id_sala) REFERENCES sala(id_sala)
+CREATE TABLE tbl_mesa (
+    id_mesa INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    id_sala INT NOT NULL,
+    num_sillas_mesa INT NOT NULL,
+    estado_mesa ENUM('libre', 'ocupada') NOT NULL DEFAULT 'libre',
+    FOREIGN KEY (id_sala) REFERENCES tbl_sala(id_sala)
 );
 
--- Tabla ocupacions
-CREATE TABLE ocupacio (
-    id_ocupacio INT AUTO_INCREMENT PRIMARY KEY,
-    id_empleado INT,
-    id_taula INT,
-    hora_inici DATETIME NOT NULL,
-    hora_final DATETIME,
-    FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado),
-    FOREIGN KEY (id_taula) REFERENCES taula(id_taula)
+CREATE TABLE tbl_camarero (
+    id_camarero INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre_camarero VARCHAR(30) NOT NULL,
+    codigo_camarero CHAR(4) NOT NULL UNIQUE,
+    password_camarero VARCHAR(255) NOT NULL
 );
 
--- Insertar roles
-INSERT INTO rol (nombre_rol) VALUES
-('Cambrer'),
-('Administrador');
+CREATE TABLE tbl_ocupacion (
+    id_ocupacion INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    id_mesa INT NOT NULL,
+    id_camarero INT NOT NULL,
+    id_cliente INT NOT NULL,
+    fecha_hora_ocupacion DATETIME NOT NULL,
+    fecha_hora_desocupacion DATETIME,
+    FOREIGN KEY (id_mesa) REFERENCES tbl_mesa(id_mesa),
+    FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero),
+    FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente)
+);
 
--- Insertar empleados con la contraseña encriptada "qweQWE123"
-INSERT INTO empleado (codigo_empleado, nombre, apellidos, pwd, id_rol) VALUES
-('5512', 'Martin', 'Calvet', 'qweQWE123', 1), -- qweQWE123 encriptado
-('7746', 'Christian', 'Monrabal Donis', 'qweQWE123', 2), -- qweQWE123 encriptado
-('1594', 'Alejandro', 'González Fernández', 'qweQWE123', 1), -- qweQWE123 encriptado
-('9073', 'Oriol', 'Godoy Morote', 'qweQWE123', 1); -- qweQWE123 encriptado
+-- Alter tables para FK
+ALTER TABLE tbl_mesa
+ADD CONSTRAINT fk_sala_mesa
+FOREIGN KEY (id_sala) REFERENCES tbl_sala(id_sala);
 
--- Insertar salas
-INSERT INTO sala (nombre_sala, ubicacion, capacidad) VALUES
-('Terrassa 1', 'Exterior', 20),
-('Terrassa 2', 'Exterior', 15),
-('Terrassa 3', 'Exterior', 10),
-('Menjador Principal', 'Interior', 30),
-('Menjador Secundari', 'Interior', 20),
-('Sala Privada 1', 'Interior', 8),
-('Sala Privada 2', 'Interior', 8),
-('Sala Privada 3', 'Interior', 6),
-('Sala Privada 4', 'Interior', 6);
+ALTER TABLE tbl_ocupacion
+ADD CONSTRAINT fk_mesa_ocupacion
+FOREIGN KEY (id_mesa) REFERENCES tbl_mesa(id_mesa);
 
--- Insertar taules (ejemplo de asignación de mesas a salas)
-INSERT INTO taula (id_sala, numero_taula, capacitat) VALUES
-(1, 1, 4),
-(1, 2, 4),
-(2, 1, 4),
-(3, 1, 2),
-(4, 1, 6),
-(5, 1, 4),
-(6, 1, 8),
-(7, 1, 8),
-(8, 1, 6),
-(9, 1, 6);
+ALTER TABLE tbl_ocupacion
+ADD CONSTRAINT fk_camarero_ocupacion
+FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero);
 
--- Insertar ocupacions de ejemplo
-INSERT INTO ocupacio (id_empleado, id_taula, hora_inici, hora_final) VALUES
-(1, 1, '2024-11-01 12:00:00', '2024-11-01 14:00:00'),
-(2, 3, '2024-11-01 13:00:00', NULL),
-(3, 5, '2024-11-01 13:30:00', NULL),
-(4, 2, '2024-11-01 14:00:00', '2024-11-01 16:00:00');
+ALTER TABLE tbl_ocupacion
+ADD CONSTRAINT fk_cliente_ocupacion
+FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente);
+
+-- Inserts
+INSERT INTO tbl_cliente (nombre, num_personas) VALUES 
+('Juan Pérez', 4),
+('María López', 2),
+('Carlos Sánchez', 3);
+
+
+INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES 
+(1, 'Terraza Principal', 'terraza', 50),
+(2, 'Comedor Interior', 'comedor', 40),
+(3, 'Sala Privada', 'privada', 10);
+
+
+INSERT INTO tbl_mesa (id_sala, num_sillas_mesa, estado_mesa) VALUES 
+(1, 4, 'libre'),
+(1, 2, 'libre'),
+(2, 4, 'ocupada'),
+(3, 6, 'libre');
+
+
+INSERT INTO tbl_camarero (nombre_camarero, codigo_camarero, password_camarero) VALUES 
+('Ana González', 'C001', '$2a$12$NtbM8IYMhhkOlUl9uZ7XMenWrzmSEp6DcFfQijiMs/cmjwN2MP2bi'), -- qweQWE123
+('Luis Martínez', 'C002', '$2a$12$DB3.O4aga98EH./zW9P9beKfklJkTcXMY0AnL3T6nheQhpM3usreO'), -- asdASD456
+('Sara García', 'C003', '$2a$12$b509yhiIiUsHDKfE8HdNnea.1OEVhd4ukrnc54axOg5TDuDE2MNgC'); -- zxcZXC789
+
+INSERT INTO tbl_ocupacion (id_mesa, id_camarero, id_cliente, fecha_hora_ocupacion, fecha_hora_desocupacion) VALUES 
+(3, 2, 1, '2023-11-05 12:00:00', NULL),
+(4, 1, 2, '2023-11-05 13:30:00', '2023-11-05 14:30:00')

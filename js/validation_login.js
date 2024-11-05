@@ -1,58 +1,53 @@
-function checkFormValidity() {
-    const codigoEmpleado = document.getElementById("codigo_empleado");
-    const password = document.getElementById("pwd");
-    const submitBtn = document.getElementById("submitBtn");
-    
-    if (codigoEmpleado.value && password.value) {
-        submitBtn.disabled = false;
-    } else {
-        submitBtn.disabled = true;
-    }
-}
+    document.getElementById("codigo_empleado").onblur = validaCodigoCamarero;
+    document.getElementById("pwd").onblur = validaPassword;
+    document.getElementById("loginForm").onsubmit = validaForm;
+    function validaCodigoCamarero() {
+    let codigo_empleado = document.getElementById("codigo_empleado").value;
+    let input_empleado = document.getElementById("codigo_empleado");
+    let codigoError = document.getElementById("codigo_empleado_error");
 
-function validar_codigo() {
-    const codigoEmpleado = document.getElementById("codigo_empleado");
-    const codigoError = document.getElementById("codigo_empleado_error");
-
-    if (!codigoEmpleado.value) {
+    if(codigo_empleado === "" || codigo_empleado === null){
         codigoError.textContent = "El código de empleado es obligatorio.";
-        codigoError.style.color = "red";
-        codigoError.style.fontSize = "0.9em";
-        codigoEmpleado.style.border = "1px solid red";
-        checkFormValidity();
+        input_empleado.classList.add("error-border");
+        return false;
+    } else if(codigo_empleado.length < 4){
+        codigoError.textContent = "El código de empleado debe tener 4 caracteres mínimo.";
+        input_empleado.classList.add("error-border");
         return false;
     } else {
         codigoError.textContent = "";
-        codigoEmpleado.style.border = "";
-        checkFormValidity();
+        input_empleado.classList.remove("error-border");
         return true;
     }
-}
+    }
 
-function validar_password() {
-    const password = document.getElementById("pwd");
-    const pwdError = document.getElementById("pwd_error");
+    function validaPassword() {
+    let pwd = document.getElementById("pwd").value;
+    let input_pwd = document.getElementById("pwd");
+    let pwdError = document.getElementById("pwd_error");
 
-    if (!password.value) {
+    if(pwd === "" || pwd === null){
         pwdError.textContent = "La contraseña es obligatoria.";
-        pwdError.style.color = "red";
-        pwdError.style.fontSize = "0.9em";
-        password.style.border = "1px solid red";
-        checkFormValidity();
+        input_pwd.classList.add("error-border");
+        return false;
+    } else if(pwd.length < 8){
+        pwdError.textContent = "La contraseña debe tener 8 caracteres mínimo.";
+        input_pwd.classList.add("error-border");
+        return false;
+    } else if(!pwd.match(/[A-Z]/) || !pwd.match(/[a-z]/) || !pwd.match(/[0-9]/)){
+        pwdError.textContent = "La contraseña debe contener al menos una letra mayúscula o minúscula y un número.";
+        input_pwd.classList.add("error-border");
         return false;
     } else {
         pwdError.textContent = "";
-        password.style.border = "";
-        checkFormValidity();
+        input_pwd.classList.remove("error-border");
         return true;
     }
-}
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const codigoEmpleado = document.getElementById("codigo_empleado");
-    const password = document.getElementById("pwd");
-    
-    codigoEmpleado.addEventListener('input', checkFormValidity);
-    password.addEventListener('input', checkFormValidity);
-});
-
+    function validaForm(event) {
+    event.preventDefault();
+    if (validaCodigoCamarero() && validaPassword()) {
+        document.getElementById("loginForm").submit(); 
+    }
+    }

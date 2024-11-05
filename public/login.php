@@ -28,7 +28,7 @@ session_start();
             <?php unset($_SESSION['error']);?>
             <?php endif; ?>
 
-            <button type="submit" class="login-button" id="submitBtn" disabled>Entrar</button>
+            <button type="submit" class="login-button" id="submitBtn">Entrar</button>
         </form>
     </div>
         <script src="../js/validation_login.js"></script>

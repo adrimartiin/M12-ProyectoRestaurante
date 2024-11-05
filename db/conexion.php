@@ -2,7 +2,7 @@
 $dbserver = "localhost";
 $dbusername = "root";
 $dbpassword = "";
-$dbname = "elmanantial";
+$dbname = "db_restaurante";
 
 try {
     $conn = mysqli_connect($dbserver, $dbusername, $dbpassword, $dbname);

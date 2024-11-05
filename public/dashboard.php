@@ -29,7 +29,7 @@ $nombre_empleado = "Nombre del Empleado";
                 <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
         </div>
-        <span><?php echo $nombre_empleado; ?></span>
+        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
 
