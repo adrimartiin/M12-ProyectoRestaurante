@@ -18,7 +18,6 @@ session_start();
             <label for="codigo_empleado">Código de empleado</label>
             <input type="text" id="codigo_empleado" name="codigo_empleado" placeholder="Introduce el código de empleado" onblur="validar_codigo()">
             <span id="codigo_empleado_error" class="error-message"></span>
-
             <label for="pwd">Contraseña</label>
             <input type="password" id="pwd" name="pwd" placeholder="Introduce la contraseña" onblur="validar_password()">
             <span id="pwd_error" class="error-message"></span>
