@@ -40,21 +40,11 @@ $nombre_empleado = "Nombre del Empleado";
             <div class="button-container">
                 <button class="select-button">Seleccionar</button>
             </div>
-            <div class="extra-buttons">
-                <button>Terraza 1</button>
-                <button>Terraza 2</button>
-                <button>Terraza 3</button>
-            </div>
         </div>
         <div class="option comedor">
             <h2>Comedor</h2>
             <div class="button-container">
                 <button class="select-button">Seleccionar</button>
-            </div>
-            <div class="extra-buttons">
-                <button>Comedor 1</button>
-                <button>Comedor 2</button>
-                <button>Comedor 3</button>
             </div>
         </div>
         <div class="option privadas">
@@ -62,14 +52,8 @@ $nombre_empleado = "Nombre del Empleado";
             <div class="button-container">
                 <button class="select-button">Seleccionar</button>
             </div>
-            <div class="extra-buttons">
-                <button>Sala 1</button>
-                <button>Sala 2</button>
-                <button>Sala 3</button>
-            </div>
         </div>
     </div>
-
     <script src="../js/dashboard.js"></script>
 </body>
 </html>
