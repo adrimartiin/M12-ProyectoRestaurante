@@ -29,36 +29,36 @@ $nombre_empleado = "Nombre del Empleado";
                 <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
         </div>
-        <span><?php echo $nombre_empleado; ?></span>
+        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
 
-<div class="options">
+<form action="../php/process_privadas.php" method="post" class="options">
     <div class="option privada1">
-        <h2>Sala privada 1</h2>
+        <h2>Sala Privada 1</h2>
         <div class="button-container">
-            <a href="Sala_privada1.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="sala_privada" value="privada1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada2">
-        <h2>Sala privada 2</h2>
+        <h2>Sala Privada 2</h2>
         <div class="button-container">
-            <a href="Sala_privada2.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="sala_privada" value="privada2" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada3">
-        <h2>Sala privada 3</h2>
+        <h2>Sala Privada 3</h2>
         <div class="button-container">
-            <a href="Sala_privada3.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="sala_privada" value="privada3" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada4">
-        <h2>Sala privada 4</h2>
+        <h2>Sala Privada 4</h2>
         <div class="button-container">
-            <a href="Sala_privada3.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="sala_privada" value="privada4" class="select-button">Seleccionar</button>
         </div>
     </div>
-</div>
+</form>
 
 <script src="../js/dashboard.js"></script>
 </body>

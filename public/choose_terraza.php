@@ -29,30 +29,31 @@ $nombre_empleado = "Nombre del Empleado";
                 <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
         </div>
-        <span><?php echo $nombre_empleado; ?></span>
+        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
 
-<div class="options">
+<form action="../php/process_terrazas.php" method="post" class="options">
     <div class="option terraza1">
         <h2>Terraza 1</h2>
         <div class="button-container">
-            <a href="terraza1.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="terraza" value="terraza1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza2">
         <h2>Terraza 2</h2>
         <div class="button-container">
-            <a href="terraza2.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="terraza" value="terraza2" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza3">
         <h2>Terraza 3</h2>
         <div class="button-container">
-            <a href="terraza3.php" class="select-button">Seleccionar</a>
+            <button type="submit" name="terraza" value="terraza3" class="select-button">Seleccionar</button>
         </div>
     </div>
-</div>
+</form>
+
 <script src="../js/dashboard.js"></script>
 </body>
 </html>
