@@ -37,19 +37,19 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option terraza1">
         <h2>Terraza 1</h2>
         <div class="button-container">
-            <a href="terraza1.php" class="select-button">Seleccionar</a>
+            <a href="terraza.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option terraza2">
         <h2>Terraza 2</h2>
         <div class="button-container">
-            <a href="terraza2.php" class="select-button">Seleccionar</a>
+            <a href="terraza.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option terraza3">
         <h2>Terraza 3</h2>
         <div class="button-container">
-            <a href="terraza3.php" class="select-button">Seleccionar</a>
+            <a href="terraza.php" class="select-button">Seleccionar</a>
         </div>
     </div>
 </div>

@@ -37,13 +37,13 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option comedor1">
         <h2>Comedor 1</h2>
         <div class="button-container">
-            <a href="Comedor2.php" class="select-button">Seleccionar</a>
+            <a href="comedor.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option comedor2">
         <h2>Comedor 1</h2>
         <div class="button-container">
-            <a href="Comedor3.php" class="select-button">Seleccionar</a>
+            <a href="comedor.php" class="select-button">Seleccionar</a>
         </div>
     </div>
 </div>

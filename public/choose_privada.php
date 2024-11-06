@@ -37,19 +37,19 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option privada1">
         <h2>Sala privada 1</h2>
         <div class="button-container">
-            <a href="Sala_privada1.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option privada2">
         <h2>Sala privada 2</h2>
         <div class="button-container">
-            <a href="Sala_privada2.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option privada3">
         <h2>Sala privada 3</h2>
         <div class="button-container">
-            <a href="Sala_privada3.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada.php" class="select-button">Seleccionar</a>
         </div>
     </div>
     <div class="option privada4">
