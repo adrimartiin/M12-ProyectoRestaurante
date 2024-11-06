@@ -5,8 +5,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../public/login.php");
     exit();
 }
-
-$nombre_empleado = "Nombre del Empleado"; 
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +12,7 @@ $nombre_empleado = "Nombre del Empleado";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard El Manantial</title>
+    <title>Seleccionar terraza</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/choose_terraza.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
@@ -37,19 +35,19 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option terraza1">
         <h2>Terraza 1</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="terraza1" class="select-button">Seleccionar</button>
+            <button type="submit" name="terraza_principal" value="terraza_principal" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza2">
         <h2>Terraza 2</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="terraza2" class="select-button">Seleccionar</button>
+            <button type="submit" name="terraza_secundaria" value="terraza_secundaria" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza3">
         <h2>Terraza 3</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="terraza3" class="select-button">Seleccionar</button>
+            <button type="submit" name="terraza_terciaria" value="terraza_terciaria" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>

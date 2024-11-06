@@ -5,8 +5,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../public/login.php");
     exit();
 }
-
-$nombre_empleado = "Nombre del Empleado"; 
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +12,7 @@ $nombre_empleado = "Nombre del Empleado";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard El Manantial</title>
+    <title>Seleccionar sala privada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/choose_privada.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
@@ -37,25 +35,25 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option privada1">
         <h2>Sala Privada 1</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="privada1" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala_privada_1" value="sala_privada_1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada2">
         <h2>Sala Privada 2</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="privada2" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala_privada_2" value="sala_privada_2" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada3">
         <h2>Sala Privada 3</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="privada3" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala_privada_3" value="sala_privada_3" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada4">
         <h2>Sala Privada 4</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="privada4" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala_privada_4" value="sala_privada_4" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>
