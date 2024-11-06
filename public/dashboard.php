@@ -36,10 +36,10 @@ $nombre_empleado = "Nombre del Empleado";
 
     <div class="options">
         <div class="option terraza">
-            <h2>Terraza</h2>
+            <h2>Terraza</h2>  
             <div class="button-container">
                 <button class="select-button">Seleccionar</button>
-            </div>
+         </div>
         </div>
         <div class="option comedor">
             <h2>Comedor</h2>
