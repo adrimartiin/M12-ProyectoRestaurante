@@ -33,29 +33,29 @@ $nombre_empleado = "Nombre del Empleado";
     </div>
 </div>
 
-<form action="../php/process_privadas.php" method="post" class="options">
+<form action="gestionar_mesas.php" method="post" class="options">
     <div class="option privada1">
         <h2>Sala Privada 1</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada" value="privada1" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="privada1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada2">
         <h2>Sala Privada 2</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada" value="privada2" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="privada2" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada3">
         <h2>Sala Privada 3</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada" value="privada3" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="privada3" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada4">
         <h2>Sala Privada 4</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada" value="privada4" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="privada4" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>
