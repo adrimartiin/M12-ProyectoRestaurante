@@ -113,21 +113,22 @@ body {
     transition: background-color 0.3s;
 }
 
-.option .select-button:hover {
-    background-color: #b97f52;
+.option.privada1 {
+    background-image: url('../img/privada1.jpeg');
 }
 
-.option.terraza {
-    background-image: url('../img/terraza4.jpeg');
+.option.privada2 {
+    background-image: url('../img/privada2.jpeg');
 }
 
-.option.comedor {
-    background-image: url('../img/comedor.jpeg');
+.option.privada3 {
+    background-image: url('../img/privada3.jpeg');
 }
 
-.option.privadas {
-    background-image: url('../img/privada.jpg');
+.option.privada4 {
+    background-image: url('../img/privada4.jpeg');
 }
+
 
 .extra-buttons {
     display: none;
