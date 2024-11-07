@@ -1,8 +1,7 @@
-CREATE DATABASE db_restaurante;
+CREATE DATABASE elmanantial;
 
-USE db_restaurante;
+USE elmanantial;
 
--- Crear tablas
 CREATE TABLE tbl_cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL,
@@ -43,60 +42,65 @@ CREATE TABLE tbl_ocupacion (
     FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente)
 );
 
--- Crear salas (terrazas, comedores, salas privadas)
 INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES
-(1, 'Terraza Principal', 'terraza', 50),
-(2, 'Terraza Secundaria', 'terraza', 60),
-(3, 'Terraza Externa', 'terraza', 70),
-(4, 'Comedor Interior', 'comedor', 40),
-(5, 'Comedor Pequeño', 'comedor', 30),
-(6, 'Sala Privada 1', 'privada', 10),
-(7, 'Sala Privada 2', 'privada', 10),
-(8, 'Sala Privada 3', 'privada', 10),
-(9, 'Sala Privada 4', 'privada', 10);
+(1, 'terraza_principal', 'terraza', 50),
+(2, 'terraza_secundaria', 'terraza', 60),
+(3, 'terraza_terciaria', 'terraza', 70),
+(4, 'comedor_interior', 'comedor', 40),
+(5, 'comedor_exterior', 'comedor', 30),
+(6, 'sala_privada_1', 'privada', 10),
+(7, 'sala_privada_2', 'privada', 10),
+(8, 'sala_privada_3', 'privada', 10),
+(9, 'sala_privada_4', 'privada', 10);
 
--- Insertar mesas en las salas con sillas entre 2 y 6
 INSERT INTO tbl_mesa (id_sala, num_sillas_mesa, estado_mesa) VALUES
--- Terraza 1 (4 mesas)
+-- Terraza Principal
+(1, 2, 'libre'),
+(1, 3, 'libre'),
 (1, 4, 'libre'),
-(1, 4, 'libre'),
-(1, 4, 'libre'),
-(1, 4, 'libre'),
--- Terraza 2 (4 mesas)
+(1, 5, 'libre'),
+
+-- Terraza Secundaria
+(2, 2, 'libre'),
+(2, 3, 'libre'),
 (2, 4, 'libre'),
-(2, 4, 'libre'),
-(2, 4, 'libre'),
-(2, 4, 'libre'),
--- Terraza 3 (4 mesas)
+(2, 5, 'libre'),
+
+-- Terraza Terciaria
+(3, 2, 'libre'),
+(3, 3, 'libre'),
 (3, 4, 'libre'),
-(3, 4, 'libre'),
-(3, 4, 'libre'),
-(3, 4, 'libre'),
--- Comedor 1 (7 mesas)
+(3, 5, 'libre'),
+
+-- Comedor Interior
 (4, 4, 'libre'),
 (4, 5, 'libre'),
-(4, 6, 'libre'),
+(4, 2, 'libre'),
 (4, 4, 'libre'),
 (4, 3, 'libre'),
 (4, 5, 'libre'),
 (4, 6, 'libre'),
--- Comedor 2 (6 mesas)
+
+-- Comedor Exterior
 (5, 4, 'libre'),
 (5, 5, 'libre'),
 (5, 3, 'libre'),
 (5, 6, 'libre'),
 (5, 4, 'libre'),
-(5, 5, 'libre'),
--- Sala Privada 1 (1 mesa de 10 sillas)
+(5, 2, 'libre'),
+
+-- Sala Privada 1
 (6, 10, 'libre'),
--- Sala Privada 2 (1 mesa de 10 sillas)
+
+-- Sala Privada 2
 (7, 10, 'libre'),
--- Sala Privada 3 (1 mesa de 10 sillas)
+
+-- Sala Privada 3
 (8, 10, 'libre'),
--- Sala Privada 4 (1 mesa de 10 sillas)
+
+-- Sala Privada 4
 (9, 10, 'libre');
 
--- Insertar camareros
 INSERT INTO tbl_camarero (nombre_camarero, codigo_camarero, password_camarero) VALUES
 ('Christian Monrabal', 'C001', '$2a$12$NtbM8IYMhhkOlUl9uZ7XMenWrzmSEp6DcFfQijiMs/cmjwN2MP2bi'), -- qweQWE123
 ('Adrian Martin', 'C002', '$2a$12$DB3.O4aga98EH./zW9P9beKfklJkTcXMY0AnL3T6nheQhpM3usreO'), -- asdASD456

@@ -13,53 +13,52 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard El Manantial</title>
+    <title>Seleccionar sala privada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/choose_privada.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="navbar">
-        <img src="../img/icon.png" class="icon">
-        <div class="user-info">
-            <div class="dropdown">
-                <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
-                <div class="dropdown-content">
-                    <a href="../private/logout.php">Cerrar Sesión</a>
-                </div>
+<div class="navbar">
+    <img src="../img/icon.png" class="icon">
+    <div class="user-info">
+        <div class="dropdown">
+            <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
+            <div class="dropdown-content">
+                <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
-            <span><?php echo $_SESSION['nombre_usuario']; ?></span>
+        </div>
+        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
+    </div>
+</div>
+
+<form action="gestionar_mesas.php" method="post" class="options">
+    <div class="option privada1">
+        <h2>Sala Privada 1</h2>
+        <div class="button-container">
+            <button type="submit" name="sala_privada_1" value="sala_privada_1" class="select-button">Seleccionar</button>
         </div>
     </div>
-    <form action="../procesos/procesoSalaPriv.php" method="post" class="options">
-        <div class="options">
-            <div class="option privada1">
-                <h2>Sala privada 1</h2>
-                <div class="button-container">
-                    <button type="submit" name="salasPriv" value="salaPriv1" class="select-button">Seleccionar</button>
-                </div>
-            </div>
-            <div class="option privada2">
-                <h2>Sala privada 2</h2>
-                <div class="button-container">
-                    <button type="submit" name="salasPriv" value="salaPriv2" class="select-button">Seleccionar</button>
-                </div>
-            </div>
-            <div class="option privada3">
-                <h2>Sala privada 3</h2>
-                <div class="button-container">
-                    <button type="submit" name="salasPriv" value="salaPriv3" class="select-button">Seleccionar</button>
-                </div>
-            </div>
-            <div class="option privada4">
-                <h2>Sala privada 4</h2>
-                <div class="button-container">
-                    <button type="submit" name="salasPriv" value="salaPriv4" class="select-button">Seleccionar</button>
-                </div>
-            </div>
+    <div class="option privada2">
+        <h2>Sala Privada 2</h2>
+        <div class="button-container">
+            <button type="submit" name="sala_privada_2" value="sala_privada_2" class="select-button">Seleccionar</button>
         </div>
-    </form>
+    </div>
+    <div class="option privada3">
+        <h2>Sala Privada 3</h2>
+        <div class="button-container">
+            <button type="submit" name="sala_privada_3" value="sala_privada_3" class="select-button">Seleccionar</button>
+        </div>
+    </div>
+    <div class="option privada4">
+        <h2>Sala Privada 4</h2>
+        <div class="button-container">
+            <button type="submit" name="sala_privada_4" value="sala_privada_4" class="select-button">Seleccionar</button>
+        </div>
+    </div>
+</form>
 
     <script src="../js/dashboard.js"></script>
 </body>

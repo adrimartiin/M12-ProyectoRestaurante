@@ -1,0 +1,200 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 24px; /* Tamaño reducido */
+    color: #333;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Contenedor de mesas */
+.mesas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Reducción del espacio entre mesas */
+    justify-content: center;
+    padding: 15px; /* Reducción del padding */
+    margin-top: 20px;
+}
+
+/* Estilo de cada mesa */
+.mesa {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 12px; /* Reducción del padding */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ajuste del contenido */
+    height: 150px; /* Reducción de la altura */
+}
+
+/* Efecto al pasar el mouse sobre una mesa */
+.mesa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mesa libre */
+.mesa.libre {
+    background-color: #d4edda;
+    border-color: #28a745;
+}
+
+/* Mesa ocupada */
+.mesa.ocupada {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+}
+
+/* Icono de mesa */
+.mesa i {
+    font-size: 40px; /* Tamaño reducido del icono */
+    color: #6c757d;
+}
+
+/* Texto del número de sillas */
+.mesa p {
+    margin-top: 8px; /* Espaciado reducido */
+    font-weight: bold;
+    color: #333;
+    font-size: 12px; /* Tamaño reducido */
+}
+
+/* Contenedor de sillas */
+.sillas {
+    display: flex;
+    justify-content: center;
+    gap: 3px; /* Espaciado reducido entre iconos */
+    margin-top: 6px; /* Espaciado reducido */
+}
+
+/* Iconos de sillas */
+.sillas i {
+    font-size: 14px; /* Tamaño reducido del icono */
+    transition: color 0.3s ease;
+}
+
+/* Estilo de los botones */
+button {
+    padding: 8px; /* Reducción del padding */
+    border: none;
+    border-radius: 6px;
+    font-size: 12px; /* Tamaño reducido del texto */
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón de ocupar */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Hover del botón de ocupar */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Botón de desocupar */
+button.desocupar {
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Hover del botón de desocupar */
+button.desocupar:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Estilos del popup (sin cambios) */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px; /* Mantener el padding original */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%; /* Mantener el ancho original */
+    max-width: 400px; /* Mantener el máximo ancho original */
+    transition: all 0.3s ease;
+}
+
+
+/* Estilo del overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+/* Estilo del botón de cerrar */
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px; /* Tamaño reducido del botón */
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Hover del botón de cerrar */
+.popup .close-btn:hover {
+    color: #f44336; /* Rojo al pasar el mouse */
+}
+
+/* Input y botón dentro del popup */
+.popup input[type="text"],
+.popup input[type="number"],
+.popup button {
+    padding: 10px; /* Reducción del padding */
+    margin: 8px 0; /* Reducción del margen */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 12px; /* Reducción del tamaño de la fuente */
+}
+
+.popup input[type="text"]:focus,
+.popup input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Estilos para mensaje de error */
+.error {
+    color: #dc3545;
+    font-size: 12px; /* Tamaño reducido */
+    text-align: center;
+    margin-top: 10px;
+}
