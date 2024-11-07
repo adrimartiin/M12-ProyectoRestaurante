@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 </div>
 
-<form action="gestionar_mesas.php" method="post" class="options">
+<form action="mesas_comedor.php" method="post" class="options">
     <div class="option comedor1">
         <h2>Comedor Interior</h2>
         <div class="button-container">
