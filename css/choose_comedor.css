@@ -117,16 +117,12 @@ body {
     background-color: #b97f52;
 }
 
-.option.terraza {
-    background-image: url('../img/terraza4.jpeg');
+.option.comedor1 {
+    background-image: url('../img/comedor2.jpeg');
 }
 
-.option.comedor {
-    background-image: url('../img/comedor.jpeg');
-}
-
-.option.privadas {
-    background-image: url('../img/privada.jpg');
+.option.comedor2 {
+    background-image: url('../img/comedor3.jpeg');
 }
 
 .extra-buttons {

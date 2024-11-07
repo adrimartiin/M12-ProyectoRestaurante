@@ -16,7 +16,7 @@ $nombre_empleado = "Nombre del Empleado";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard El Manantial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/choose_privada.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 <body>
@@ -34,22 +34,28 @@ $nombre_empleado = "Nombre del Empleado";
 </div>
 
 <div class="options">
-    <div class="option terraza">
-        <h2>Terraza</h2>
+    <div class="option privada1">
+        <h2>Sala privada 1</h2>
         <div class="button-container">
-            <a href="./choose_terraza.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada1.php" class="select-button">Seleccionar</a>
         </div>
     </div>
-    <div class="option comedor">
-        <h2>Comedor</h2>
+    <div class="option privada2">
+        <h2>Sala privada 2</h2>
         <div class="button-container">
-            <a href="./choose_comedor.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada2.php" class="select-button">Seleccionar</a>
         </div>
     </div>
-    <div class="option privadas">
-        <h2>Sala privada</h2>
+    <div class="option privada3">
+        <h2>Sala privada 3</h2>
         <div class="button-container">
-            <a href="./choose_privada.php" class="select-button">Seleccionar</a>
+            <a href="Sala_privada3.php" class="select-button">Seleccionar</a>
+        </div>
+    </div>
+    <div class="option privada4">
+        <h2>Sala privada 4</h2>
+        <div class="button-container">
+            <a href="Sala_privada3.php" class="select-button">Seleccionar</a>
         </div>
     </div>
 </div>

@@ -6,6 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codigo_empleado = trim($_POST['codigo_empleado']);
     $pwd = trim($_POST['pwd']);
 
+    $_SESSION['codigo_empleado'] = $codigo_empleado;
+    $_SESSION['pwd'] = $pwd;
+
     if (empty($codigo_empleado) || empty($pwd)) {
         $_SESSION['error'] = "Ambos campos son obligatorios.";
         header("Location: ../public/login.php");
@@ -19,11 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $usuario = mysqli_fetch_assoc($result);
-            // Usamos password_verify para verificar la contraseña
+
             if (password_verify($pwd, $usuario['password_camarero'])) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['usuario_id'] = $usuario['id_camarero'];
                 $_SESSION['nombre_usuario'] = $usuario['nombre_camarero'];
+
+                unset($_SESSION['codigo_empleado']);
+                unset($_SESSION['pwd']);
+                unset($_SESSION['error']);
+
                 header("Location: ../public/dashboard.php");
                 exit();
             } else {
@@ -46,4 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
-
