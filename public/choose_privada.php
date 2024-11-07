@@ -5,12 +5,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../public/login.php");
     exit();
 }
-
-$nombre_empleado = "Nombre del Empleado"; 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,47 +18,50 @@ $nombre_empleado = "Nombre del Empleado";
     <link rel="stylesheet" href="../css/choose_privada.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
+
 <body>
-<div class="navbar">
-    <img src="../img/icon.png" class="icon">
-    <div class="user-info">
-        <div class="dropdown">
-            <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
-            <div class="dropdown-content">
-                <a href="../private/logout.php">Cerrar Sesión</a>
+    <div class="navbar">
+        <img src="../img/icon.png" class="icon">
+        <div class="user-info">
+            <div class="dropdown">
+                <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
+                <div class="dropdown-content">
+                    <a href="../private/logout.php">Cerrar Sesión</a>
+                </div>
+            </div>
+            <span><?php echo $_SESSION['nombre_usuario']; ?></span>
+        </div>
+    </div>
+    <form action="../procesos/procesoSalaPriv.php" method="post" class="options">
+        <div class="options">
+            <div class="option privada1">
+                <h2>Sala privada 1</h2>
+                <div class="button-container">
+                    <button type="submit" name="salasPriv" value="salaPriv1" class="select-button">Seleccionar</button>
+                </div>
+            </div>
+            <div class="option privada2">
+                <h2>Sala privada 2</h2>
+                <div class="button-container">
+                    <button type="submit" name="salasPriv" value="salaPriv2" class="select-button">Seleccionar</button>
+                </div>
+            </div>
+            <div class="option privada3">
+                <h2>Sala privada 3</h2>
+                <div class="button-container">
+                    <button type="submit" name="salasPriv" value="salaPriv3" class="select-button">Seleccionar</button>
+                </div>
+            </div>
+            <div class="option privada4">
+                <h2>Sala privada 4</h2>
+                <div class="button-container">
+                    <button type="submit" name="salasPriv" value="salaPriv4" class="select-button">Seleccionar</button>
+                </div>
             </div>
         </div>
-        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
-    </div>
-</div>
+    </form>
 
-<form action="gestionar_mesas.php" method="post" class="options">
-    <div class="option privada1">
-        <h2>Sala Privada 1</h2>
-        <div class="button-container">
-            <button type="submit" name="sala" value="privada1" class="select-button">Seleccionar</button>
-        </div>
-    </div>
-    <div class="option privada2">
-        <h2>Sala Privada 2</h2>
-        <div class="button-container">
-            <button type="submit" name="sala" value="privada2" class="select-button">Seleccionar</button>
-        </div>
-    </div>
-    <div class="option privada3">
-        <h2>Sala Privada 3</h2>
-        <div class="button-container">
-            <button type="submit" name="sala" value="privada3" class="select-button">Seleccionar</button>
-        </div>
-    </div>
-    <div class="option privada4">
-        <h2>Sala Privada 4</h2>
-        <div class="button-container">
-            <button type="submit" name="sala" value="9" class="select-button">Seleccionar</button>
-        </div>
-    </div>
-</form>
-
-<script src="../js/dashboard.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
+
 </html>

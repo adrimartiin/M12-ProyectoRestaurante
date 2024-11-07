@@ -6,7 +6,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit();
 }
 
-$nombre_empleado = "Nombre del Empleado"; 
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,6 @@ $nombre_empleado = "Nombre del Empleado";
     <link rel="stylesheet" href="../css/choose_comedor.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
-<body>
 <div class="navbar">
     <img src="../img/icon.png" class="icon">
     <div class="user-info">
@@ -29,23 +27,24 @@ $nombre_empleado = "Nombre del Empleado";
                 <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
         </div>
-        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
+        <span><?php echo  $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
-
-<form action="gestionar_mesas.php" method="post" class="options">
+<form action="../procesos/procesoComedores.php" method="post" class="options">
+<div class="options">
     <div class="option comedor1">
         <h2>Comedor 1</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="comedor1" class="select-button">Seleccionar</button>
+            <button type="submit" name="comedores" value="comedor1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option comedor2">
         <h2>Comedor 2</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="comedor2" class="select-button">Seleccionar</button>
+            <button type="submit" name="comedores" value="comedor2" class="select-button">Seleccionar</button>
         </div>
     </div>
+</div>
 </form>
 
 <script src="../js/dashboard.js"></script>
