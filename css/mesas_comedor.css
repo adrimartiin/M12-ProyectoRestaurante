@@ -1,200 +1,222 @@
-/* Estilo general */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Título */
-h1 {
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #a36f53;
+    color: #fff;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    height: 60px;
+    width: 40px;
+}
+
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .user-info span {
+    margin-left: 40px;
+}
+
+.dropdown i {
+    margin-right: 25px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.slider-container {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 20px;
+}
+
+.option {
+    flex-shrink: 0;
+    width: 33.33%;
+    height: 550px;
+    padding: 20px;
     text-align: center;
-    font-size: 24px; /* Tamaño reducido */
-    color: #333;
-    margin-top: 20px;
-    text-transform: uppercase;
-}
-
-/* Contenedor de mesas */
-.mesas-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px; /* Reducción del espacio entre mesas */
-    justify-content: center;
-    padding: 15px; /* Reducción del padding */
-    margin-top: 20px;
-}
-
-/* Estilo de cada mesa */
-.mesa {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    padding: 12px; /* Reducción del padding */
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d4a373;
+    background-size: cover;
+    background-position: center;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Ajuste del contenido */
-    height: 150px; /* Reducción de la altura */
-}
-
-/* Efecto al pasar el mouse sobre una mesa */
-.mesa:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Mesa libre */
-.mesa.libre {
-    background-color: #d4edda;
-    border-color: #28a745;
-}
-
-/* Mesa ocupada */
-.mesa.ocupada {
-    background-color: #f8d7da;
-    border-color: #dc3545;
-}
-
-/* Icono de mesa */
-.mesa i {
-    font-size: 40px; /* Tamaño reducido del icono */
-    color: #6c757d;
-}
-
-/* Texto del número de sillas */
-.mesa p {
-    margin-top: 8px; /* Espaciado reducido */
-    font-weight: bold;
-    color: #333;
-    font-size: 12px; /* Tamaño reducido */
-}
-
-/* Contenedor de sillas */
-.sillas {
-    display: flex;
     justify-content: center;
-    gap: 3px; /* Espaciado reducido entre iconos */
-    margin-top: 6px; /* Espaciado reducido */
+    border-radius: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Iconos de sillas */
-.sillas i {
-    font-size: 14px; /* Tamaño reducido del icono */
-    transition: color 0.3s ease;
+.option h2 {
+    margin: 0;
+    padding: 10px;
 }
 
-/* Estilo de los botones */
-button {
-    padding: 8px; /* Reducción del padding */
-    border: none;
-    border-radius: 6px;
-    font-size: 12px; /* Tamaño reducido del texto */
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.option.libre {
+    background-color: #25c44a;
 }
 
-/* Botón de ocupar */
-button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Hover del botón de ocupar */
-button[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-/* Botón de desocupar */
-button.desocupar {
+.option.ocupada {
     background-color: #dc3545;
-    color: #fff;
-    font-weight: bold;
 }
 
-/* Hover del botón de desocupar */
-button.desocupar:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
+.option input[type="radio"] {
+    display: none;
 }
 
-/* Estilos del popup (sin cambios) */
+.option label {
+    cursor: pointer;
+}
+
+.option .select-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #d4a373;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.option .select-button:hover {
+    background-color: #b97f52;
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    font-size: 24px;
+}
+
+#prevArrow {
+    left: 10px;
+}
+
+#nextArrow {
+    right: 10px;
+}
+
+.mesa-img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+/* Estilos para el popup */
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px; /* Mantener el padding original */
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    width: 80%; /* Mantener el ancho original */
-    max-width: 400px; /* Mantener el máximo ancho original */
-    transition: all 0.3s ease;
-}
-
-
-/* Estilo del overlay */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
+    z-index: 1;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-    transition: all 0.3s ease;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Estilo del botón de cerrar */
-.popup .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px; /* Tamaño reducido del botón */
-    color: #333;
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+}
+
+.popup-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup-close:hover,
+.popup-close:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
-/* Hover del botón de cerrar */
-.popup .close-btn:hover {
-    color: #f44336; /* Rojo al pasar el mouse */
-}
-
-/* Input y botón dentro del popup */
-.popup input[type="text"],
-.popup input[type="number"],
-.popup button {
-    padding: 10px; /* Reducción del padding */
-    margin: 8px 0; /* Reducción del margen */
-    border-radius: 6px;
-    border: 1px solid #ccc;
+/* Estilos adicionales para formularios */
+form input[type="text"], form input[type="number"] {
     width: 100%;
-    font-size: 12px; /* Reducción del tamaño de la fuente */
+    padding: 10px;
+    margin: 10px 0;
 }
 
-.popup input[type="text"]:focus,
-.popup input[type="number"]:focus {
-    outline: none;
-    border-color: #007bff;
-}
 
-/* Estilos para mensaje de error */
-.error {
-    color: #dc3545;
-    font-size: 12px; /* Tamaño reducido */
-    text-align: center;
-    margin-top: 10px;
+@media (max-width: 768px) {
+    .slider {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option {
+        width: 100%;
+    }
+
+    .slider-container {
+        width: 100%;
+    }
 }
