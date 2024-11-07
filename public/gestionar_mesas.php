@@ -3,8 +3,17 @@ session_start();
 include '../db/conexion.php';
 include '../assets/mesas.php';
 
-$sala = isset($_POST['sala']) ? $_POST['sala'] : ''; // Sala seleccionada desde el formulario
 
+
+// Comprobar si el valor de 'sala' está en $_GET o $_POST (dando prioridad a $_GET después de enviar el formulario)
+if (isset($_POST['sala'])) {
+    $_SESSION['sala'] = $_POST['sala'];
+}
+
+
+$sala=$_SESSION['sala'];
+
+echo $_SESSION['sala'];
 // Función para obtener mesas según la sala
 function obtenerMesasPorSala($conn, $id_sala) {
     $sql = "SELECT * FROM tbl_mesa WHERE id_sala = ?"; // Consulta de mesas por sala
@@ -16,37 +25,40 @@ function obtenerMesasPorSala($conn, $id_sala) {
 }
 
 // Verificar qué sala se ha seleccionado
-switch ($sala) {
-    case 'terraza1':
-        $mesas = obtenerMesasPorSala($conn, 1); // ID de la terraza 1
-        break;
-    case 'terraza2':
-        $mesas = obtenerMesasPorSala($conn, 2); // ID de la terraza 2
-        break;
-    case 'terraza3':
-        $mesas = obtenerMesasPorSala($conn, 3); // ID de la terraza 3
-        break;
-    case 'comedor1':
-        $mesas = obtenerMesasPorSala($conn, 4); // ID del comedor 1
-        break;
-    case 'comedor2':
-        $mesas = obtenerMesasPorSala($conn, 5); // ID del comedor 2
-        break;
-    case 'privada1':
-        $mesas = obtenerMesasPorSala($conn, 6); // ID de la sala privada 1
-        break;
-    case 'privada2':
-        $mesas = obtenerMesasPorSala($conn, 7); // ID de la sala privada 2
-        break;
-    case 'privada3':
-        $mesas = obtenerMesasPorSala($conn, 8); // ID de la sala privada 3
-        break;
-    case 'privada4':
-        $mesas = obtenerMesasPorSala($conn, 9); // ID de la sala privada 4
-        break;
-    default:
-        $mesas = []; // Si no se selecciona ninguna sala
-        break;
+$mesas = 0; // Definir $mesas de forma predeterminada
+if ($sala) {
+    switch ($sala) {
+        case 'terraza1':
+            $mesas = obtenerMesasPorSala($conn, 1); // ID de la terraza 1
+            break;
+        case 'terraza2':
+            $mesas = obtenerMesasPorSala($conn, 2); // ID de la terraza 2
+            break;
+        case 'terraza3':
+            $mesas = obtenerMesasPorSala($conn, 3); // ID de la terraza 3
+            break;
+        case 'comedor1':
+            $mesas = obtenerMesasPorSala($conn, 4); // ID del comedor 1
+            break;
+        case 'comedor2':
+            $mesas = obtenerMesasPorSala($conn, 5); // ID del comedor 2
+            break;
+        case 'privada1':
+            $mesas = obtenerMesasPorSala($conn, 6); // ID de la sala privada 1
+            break;
+        case 'privada2':
+            $mesas = obtenerMesasPorSala($conn, 7); // ID de la sala privada 2
+            break;
+        case 'privada3':
+            $mesas = obtenerMesasPorSala($conn, 8); // ID de la sala privada 3
+            break;
+        case 'privada4':
+            $mesas = obtenerMesasPorSala($conn, 9); // ID de la sala privada 4
+            break;
+        default:
+            $mesas = []; // Si no se selecciona ninguna sala
+            break;
+    }
 }
 
 // Si no se encuentran mesas, mostrar un mensaje de advertencia
@@ -75,7 +87,7 @@ if (empty($mesas)) {
                     <h2>Mesa <?= $mesa['id_mesa'] ?></h2>
                     <p>Sillas: <?= $mesa['num_sillas_mesa'] ?></p>
                     <?php if ($mesa['estado_mesa'] == 'libre'): ?>
-                        <button onclick="abrirFormulario(<?= $mesa['id_mesa'] ?>, <?= $mesa['num_sillas_mesa'] ?>)">Ocupar</button>
+                        <button onclick="abrirFormulario(<?= $mesa['id_mesa'] ?>, <?= $mesa['num_sillas_mesa'] ?>, '<?= $sala ?>')">Ocupar</button>
                     <?php else: ?>
                         <button onclick="desocuparMesa(<?= $mesa['id_mesa'] ?>)">Desocupar</button>
                     <?php endif; ?>
@@ -88,9 +100,10 @@ if (empty($mesas)) {
     </div>
 
     <div id="form-popup" class="form-popup">
-        <form id="form-ocupacion" action="../assets/mesas.php" method="POST">
+        <form id="form-ocupacion" action="gestionar_mesas.php" method="POST">
             <h2>Ocupar Mesa</h2>
             <input type="hidden" name="id_mesa" id="id_mesa">
+            <input type="hidden" name="sala" value="<?= htmlspecialchars($sala) ?>"> <!-- Campo oculto para la sala seleccionada -->
             <label for="nombre_cliente">Nombre:</label>
             <input type="text" name="nombre_cliente" required>
             <label for="num_personas">Número de Personas:</label>
@@ -99,5 +112,17 @@ if (empty($mesas)) {
             <button type="button" onclick="cerrarFormulario()">Cerrar</button>
         </form>
     </div>
+
+    <script>
+        function abrirFormulario(idMesa, numSillas, sala) {
+            document.getElementById('id_mesa').value = idMesa;
+            document.getElementById('num_personas').value = numSillas;
+            document.getElementById('form-popup').style.display = 'block';
+        }
+
+        function cerrarFormulario() {
+            document.getElementById('form-popup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

@@ -55,7 +55,7 @@ $nombre_empleado = "Nombre del Empleado";
     <div class="option privada4">
         <h2>Sala Privada 4</h2>
         <div class="button-container">
-            <button type="submit" name="sala" value="privada4" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="9" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>
