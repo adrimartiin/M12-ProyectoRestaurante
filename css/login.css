@@ -99,6 +99,12 @@ body {
     color: #aaa;
     font-style: italic;
 }
+.error-message{
+    color: red;
+}
+.error-border{
+    border: 2px solid red !important;
+}
 
 .icon {
     height: 40%;

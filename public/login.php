@@ -20,7 +20,7 @@ session_start();
             <span id="codigo_empleado_error" class="error-message"></span>
             
             <label for="pwd">Contraseña</label>
-            <input type="password" id="pwd" name="pwd" placeholder="Introduce la contraseña" onblur="validar_password()">
+            <input type="password" id="pwd" name="pwd" placeholder="Introduce la contraseña">
             <span id="pwd_error" class="error-message"></span>
 
             <?php if (isset($_SESSION['error'])): ?>

@@ -60,30 +60,68 @@ ADD CONSTRAINT fk_cliente_ocupacion
 FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente);
 
 -- Inserts
-INSERT INTO tbl_cliente (nombre, num_personas) VALUES 
-('Juan Pérez', 4),
-('María López', 2),
-('Carlos Sánchez', 3);
-
-
-INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES 
+INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES
 (1, 'Terraza Principal', 'terraza', 50),
-(2, 'Comedor Interior', 'comedor', 40),
-(3, 'Sala Privada', 'privada', 10);
+(2, 'Terraza Secundaria', 'terraza', 60),
+(3, 'Terraza Terciaria', 'terraza', 70),
+(4, 'Comedor Interior', 'comedor', 40),
+(5, 'Comedor Exterior', 'comedor', 30),
+(6, 'Sala Privada 1', 'privada', 10),
+(7, 'Sala Privada 2', 'privada', 10),
+(8, 'Sala Privada 3', 'privada', 10),
+(9, 'Sala Privada 4', 'privada', 10);
 
-
-INSERT INTO tbl_mesa (id_sala, num_sillas_mesa, estado_mesa) VALUES 
-(1, 4, 'libre'),
+INSERT INTO tbl_mesa (id_sala, num_sillas_mesa, estado_mesa) VALUES
+-- Terraza Principal
 (1, 2, 'libre'),
-(2, 4, 'ocupada'),
-(3, 6, 'libre');
+(1, 3, 'libre'),
+(1, 4, 'libre'),
+(1, 5, 'libre'),
 
+-- Terraza Secundaria
+(2, 2, 'libre'),
+(2, 3, 'libre'),
+(2, 4, 'libre'),
+(2, 5, 'libre'),
+
+-- Terraza Terciaria
+(3, 2, 'libre'),
+(3, 3, 'libre'),
+(3, 4, 'libre'),
+(3, 5, 'libre'),
+
+-- Comedor Interior
+(4, 4, 'libre'),
+(4, 5, 'libre'),
+(4, 2, 'libre'),
+(4, 4, 'libre'),
+(4, 3, 'libre'),
+(4, 5, 'libre'),
+(4, 6, 'libre'),
+
+-- Comedor Exterior
+(5, 4, 'libre'),
+(5, 5, 'libre'),
+(5, 3, 'libre'),
+(5, 6, 'libre'),
+(5, 4, 'libre'),
+(5, 2, 'libre'),
+
+-- Sala Privada 1
+(6, 10, 'libre'),
+
+-- Sala Privada 2
+(7, 10, 'libre'),
+
+-- Sala Privada 3
+(8, 10, 'libre'),
+
+-- Sala Privada 4
+(9, 10, 'libre');
 
 INSERT INTO tbl_camarero (nombre_camarero, codigo_camarero, password_camarero) VALUES 
 ('Ana González', 'C001', '$2a$12$NtbM8IYMhhkOlUl9uZ7XMenWrzmSEp6DcFfQijiMs/cmjwN2MP2bi'), -- qweQWE123
 ('Luis Martínez', 'C002', '$2a$12$DB3.O4aga98EH./zW9P9beKfklJkTcXMY0AnL3T6nheQhpM3usreO'), -- asdASD456
 ('Sara García', 'C003', '$2a$12$b509yhiIiUsHDKfE8HdNnea.1OEVhd4ukrnc54axOg5TDuDE2MNgC'); -- zxcZXC789
 
-INSERT INTO tbl_ocupacion (id_mesa, id_camarero, id_cliente, fecha_hora_ocupacion, fecha_hora_desocupacion) VALUES 
-(3, 2, 1, '2023-11-05 12:00:00', NULL),
-(4, 1, 2, '2023-11-05 13:30:00', '2023-11-05 14:30:00')
+drop database db_restaurante;
