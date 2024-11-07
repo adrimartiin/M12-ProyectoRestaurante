@@ -36,21 +36,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <form action="../procesos/procesoTerrazas.php" method="post" class="options">
         <div class="options">
             <div class="option terraza1">
-                <h2>Terraza 1</h2>
+                <h2>Terraza Principal </h2>
                 <div class="button-container">
-                    <button type="submit" name="terrazas" value="terraza1" class="select-button">Seleccionar</button>
+                    <button type="submit" name="terrazas" value="terrazaPrincipal" class="select-button">Seleccionar</button>
                 </div>
             </div>
             <div class="option terraza2">
-                <h2>Terraza 2</h2>
+                <h2>Terraza Secundaria</h2>
                 <div class="button-container">
-                <button type="submit" name="terrazas" value="terraza2" class="select-button">Seleccionar</button>
+                <button type="submit" name="terrazas" value="terrazaSecun" class="select-button">Seleccionar</button>
                 </div>
             </div>
             <div class="option terraza3">
-                <h2>Terraza 3</h2>
+                <h2>Terraza Externa</h2>
                 <div class="button-container">
-                <button type="submit" name="terrazas" value="terraza3" class="select-button">Seleccionar</button>
+                <button type="submit" name="terrazas" value="terrazaExt" class="select-button">Seleccionar</button>
                 </div>
             </div>
         </div>
