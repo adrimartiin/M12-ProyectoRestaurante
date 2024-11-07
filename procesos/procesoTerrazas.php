@@ -1,21 +1,29 @@
-<?php
+<?php 
+session_start(); 
+
 if (isset($_POST['terrazas'])) {
-$terrazaSeleccionada = $_POST['terrazas'];
+    $terrazaSeleccionada = $_POST['terrazas'];
 
-switch ($terrazaSeleccionada){
-    case 'terraza1':
-        echo "Has seleccionado la terraza 1.";
-    break;
+    switch ($terrazaSeleccionada) {
+        case 'terrazaPrincipal':
+            $_SESSION['nombre_sala'] = 'Terraza Principal'; 
+            header('Location: ../ubicaciones/terrazas.php');
+            exit();
 
-    case 'terraza2':
-        echo "Has seleccionado la terraza 2.";
-    break;
+        case 'terrazaSecun':
+            $_SESSION['nombre_sala'] = 'Terraza Secundaria';
+            header('Location: ../ubicaciones/terrazas.php');
+            exit();
 
-    case 'terraza3':
-        echo "Has seleccionado la terraza 3.";
-    break;
+        case 'terrazaExt':
+            $_SESSION['nombre_sala'] = 'Terraza Externa';
+            header('Location: ../ubicaciones/terrazas.php');
+            exit();
 
-}
+        default:
+            echo "Terraza seleccionada no válida.";
+            break;
+    }
 } else { 
     echo "No se ha seleccionado ninguna terraza.";
 }
