@@ -92,7 +92,7 @@ include_once '../actions/gestion_comedor.php';
         <form method="POST" action="">
             <input type="hidden" name="mesa_id" id="mesa_id">
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" required>
             <label for="personas">Número de personas:</label>
             <input type="number" name="personas" id="personas" required>
             <button type="submit" name="reserva">Reservar</button>
