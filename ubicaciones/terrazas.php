@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include_once '../db/conexion.php';
 
 if (!isset($_SESSION['nombre_sala'])) {
