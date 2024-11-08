@@ -1,4 +1,7 @@
 <?php
+// ===== ¡¡¡¡FALTAN BASTANTES COSAS!!! ======
+// falta hacer transacciones 
+// usar bind_param en segun que querys
 include_once '../db/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -41,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserva'])) {
 
             $success = "Reserva realizada con éxito.";
         } else {
-            $error = "Hubo un error al hacer la reserva.";
+            $error = "Ha habido un error al hacer la reserva.";
         }
     }
 
@@ -56,10 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['desocupar'])) {
     if (mysqli_query($conn, $updateQuery)) {
         $success = "Mesa desocupada con éxito.";
     } else {
-        $error = "Hubo un error al desocupar la mesa.";
+        $error = "Ha habido un error al desocupar la mesa.";
     }
 
     header("Location: ../public/mesas_comedor.php");
     exit();
 }
+
+
 ?>
