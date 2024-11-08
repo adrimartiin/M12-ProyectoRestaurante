@@ -30,17 +30,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 </div>
 
-<form action="mesas_comedor.php" method="post" class="options">
+<form action="gestion_mesas.php" method="post" class="options">
     <div class="option comedor1">
         <h2>Comedor Interior</h2>
         <div class="button-container">
-            <button type="submit" name="comedor_interior" value="comedor_interior" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="comedor_interior" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option comedor2">
         <h2>Comedor Exterior</h2>
         <div class="button-container">
-            <button type="submit" name="comedor_exterior" value="comedor_exterior" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="comedor_exterior" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>

@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin'])) {
 $comedor = '';
 $mesas = [];
 
-include_once '../actions/gestion_comedor.php';
+include_once '../actions/gestion_salas.php';
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,4 @@
+-- SQLBook: Code
 CREATE DATABASE elmanantial;
 
 USE elmanantial;

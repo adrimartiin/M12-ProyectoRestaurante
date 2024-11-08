@@ -5,7 +5,7 @@ $comedorSeleccionado = $_POST['comedores'];
 
 switch ($comedorSeleccionado){
     case 'comedor1':
-        echo "Has seleccionado el comedor 1.";
+        
     break;
 
     case 'comedor2':
