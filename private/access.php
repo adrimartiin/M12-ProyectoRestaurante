@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($codigo_empleado) || empty($pwd)) {
         $_SESSION['error'] = "Ambos campos son obligatorios.";
-        header("Location: ../public/login.php");
+        header("Location: ../index.php");
         exit();
     }
 
@@ -41,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $_SESSION['error'] = "Los datos introducidos son incorrectos.";
-            header("Location: ../public/login.php");
+            header("Location: ../index.php");
             exit();
         }
     } else {
         $_SESSION['error'] = "Error en la consulta: " . mysqli_error($conn);
-        header("Location: ../public/login.php");
+        header("Location: ../index.php");
         exit();
     }
 } else {
