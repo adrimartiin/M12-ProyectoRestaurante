@@ -1,18 +1,16 @@
 <?php
 include_once '../db/conexion.php';
-// pilla por sesion el nombre del usuario logueado 
+
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../index.php");
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
-    // Recoge la sala seleccionada por POST 
     $sala = $_POST['sala'];
 
     try {
-        // ====== QUERY PARA OBTENER EL ID DE LA SALA ========
-        $query = "SELECT id_sala FROM tbl_sala WHERE nombre_sala = ?"; //se obtiene el id a partir del nombre de la sala (este lo enviamos desde el choose pertinente)
+        $query = "SELECT id_sala FROM tbl_sala WHERE nombre_sala = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $sala);
         mysqli_stmt_execute($stmt);
@@ -21,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
         if ($row = mysqli_fetch_assoc($result)) {
             $id_sala = $row['id_sala'];
 
-            // ====== QUERY PARA OBTENER MESAS DE LA SALA SELECCIONADA ========
             $queryMesas = "SELECT * FROM tbl_mesa WHERE id_sala = ?";
             $stmtMesas = mysqli_prepare($conn, $queryMesas);
             mysqli_stmt_bind_param($stmtMesas, "i", $id_sala);
@@ -34,13 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
             }
 
             mysqli_stmt_close($stmtMesas);
-
-            // Muestra las mesas disponibles
-            // ¡¡¡ CAMBIAR POSTERIORMENTE POR LOS ESTILOS DEL SLIDER!!!
-            echo "<h2>Mesas en la sala: $sala</h2>";
-            foreach ($mesas as $mesa) {
-                echo "Mesa ID: " . $mesa['id_mesa'] . " - Estado: " . $mesa['estado_mesa'] . "<br>";
-            }
         } else {
             echo "No se ha encontrado ninguna sala con el nombre especificado.";
         }
@@ -49,75 +39,84 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
         echo "Error: " . $e->getMessage();
     }
 }
+?>
 
-// // ====== PROCESO DE MANEJO PARA LA OCUPACIÓN DE LAS MESAS SEGÚN LA RESERVA ========
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserva'])) {
-    $usuario_id = $_SESSION['usuario'];
-    $nombre = $_POST['nombre'];
-    $personas = $_POST['personas'];
-    $mesa_id = $_POST['mesa_id'];
-    try {
-        // Iniciar el autocommit a false
-        mysqli_autocommit($conn, false);
-        // Iniciar la transacción 
-        mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
-        // Obtén el número de sillas de la mesa asociada
-        $query = "SELECT num_sillas_mesa FROM tbl_mesa WHERE id_mesa = ?";
-        $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "i", $mesa_id);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $mesa = mysqli_fetch_assoc($result);
-        // Si hy más personas que sillas se le avisa al usuario con mensaje de error
-        if ($personas > $mesa['num_sillas_mesa']) {
-            $error = "El número de personas no puede ser mayor al número de sillas disponibles en la mesa.";
-        } else {
-            // Inserta la reserva y actualiza el estado de la mesa
-            // ===== INICIAR TRANSACCIÓN + AUTOCOMMITS A FALSE ????? =======
-            $queryReserva = "INSERT INTO tbl_ocupacion (id_cliente, id_mesa, fecha_hora_ocupacion) VALUES (?, ?, NOW())";
-            $stmtReserva = mysqli_prepare($conn, $queryReserva);
-            mysqli_stmt_bind_param($stmtReserva, "ii", $usuario_id, $mesa_id);
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Salas</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <?php if (!empty($mesas)): ?>
+        <div class="slider-container">
+            <button id="prevArrow" class="arrow-btn">&lt;</button>
+            <form method="POST" action="">
+                <div class="slider" id="mesaSlider">
+                    <?php 
+                        $imagenesSillas = [
+                            2 => "../src/mesa-2.png",
+                            3 => "../src/mesa-3.png",
+                            4 => "../src/mesa-4.png",
+                            5 => "../src/mesa-5.png",
+                            6 => "../src/mesa-6.png",
+                            10 => "../src/mesa-10.png"
+                        ];
+                    ?>
+                    <?php foreach ($mesas as $mesa): ?>
+                        <div class="option <?php echo $mesa['estado_mesa'] == 'libre' ? 'libre' : 'ocupada'; ?>">
+                            <input type="radio" name="mesa" value="<?php echo $mesa['id_mesa']; ?>" id="mesa_<?php echo $mesa['id_mesa']; ?>" <?php echo $mesa['estado_mesa'] == 'ocupada' ? 'disabled' : ''; ?>>
+                            <label for="mesa_<?php echo $mesa['id_mesa']; ?>">
+                                <h2>Mesa <?php echo $mesa['id_mesa']; ?></h2>
+                                <p>Sillas: <?php echo $mesa['num_sillas_mesa']; ?></p>
 
-            if (mysqli_stmt_execute($stmtReserva)) {
-                $updateQuery = "UPDATE tbl_mesa SET estado_mesa = 'ocupada' WHERE id_mesa = ?";
-                $stmtUpdate = mysqli_prepare($conn, $updateQuery);
-                mysqli_stmt_bind_param($stmtUpdate, "i", $mesa_id);
-                mysqli_stmt_execute($stmtUpdate);
-                $success = "Reserva realizada con éxito.";
-            } else {
-                $error = "Hubo un error al hacer la reserva.";
-            }
-            // Se hace el commit y por lo tanto se confirman las dos consultas
-            mysqli_commit($conexion);
-            // Se cierra la conexión
-            mysqli_stmt_close($stmtReserva);
-            mysqli_stmt_close($stmtUpdate);
-        }
-    } catch (Exception $e) {
-        // rollback con circunstancias de la transaccion
-        mysqli_rollback($conn);
-        $error = $e->getMessage();
-        echo "ERROR: " . $error;
-    }
-    header("Location: ../public/gestion_mesas.php");
-    exit();
-}
+                                <?php
+                                    $numSillas = $mesa['num_sillas_mesa'];
+                                    $imgSrc = isset($imagenesSillas[$numSillas]) ? $imagenesSillas[$numSillas] : ""; 
+                                ?>
+                                <?php if ($imgSrc): ?>
+                                    <img src="<?php echo $imgSrc; ?>" alt="Imagen de la mesa" class="mesa-img">
+                                <?php else: ?>
+                                    <img src="../mesas/mesa-default.png" alt="Imagen por defecto" class="mesa-img">
+                                <?php endif; ?>
+                            </label>
+                            <?php if ($mesa['estado_mesa'] == 'ocupada'): ?>
+                                <button type="submit" class="select-button" name="desocupar" value="<?php echo $mesa['id_mesa']; ?>">Desocupar</button>
+                            <?php else: ?>
+                                <button type="button" class="select-button" onclick="openPopup(<?php echo $mesa['id_mesa']; ?>, <?php echo $mesa['num_sillas_mesa']; ?>)">Reservar</button>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </form>
+            <button id="nextArrow" class="arrow-btn">&gt;</button>
+        </div>
+    <?php endif; ?>
 
-// ===== QUERY PARA EL MANEJO DE DESOCUPACIÓN DE UNA MESA ===== 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['desocupar'])) {
-    $mesa_id = $_POST['desocupar'];
-    // Una vez se desocupa la mesa y actualiza el estado de la mesa a libre
-    $updateQuery = "UPDATE tbl_mesa SET estado_mesa = 'libre' WHERE id_mesa = ?";
-    $stmtUpdate = mysqli_prepare($conn, $updateQuery);
-    mysqli_stmt_bind_param($stmtUpdate, "i", $mesa_id);
+    <!-- Popup de reserva -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup()">&times;</span>
+            <h2>Reserva de Mesa</h2>
+            <form method="POST" action="">
+                <input type="hidden" name="mesa_id" id="mesa_id">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required>
+                <label for="personas">Número de personas:</label>
+                <input type="number" name="personas" id="personas" required>
+                <button type="submit" name="reserva">Reservar</button>
+            </form>
+            <?php if (isset($error)): ?>
+                <div class="error"><?php echo $error; ?></div>
+            <?php elseif (isset($success)): ?>
+                <div class="success"><?php echo $success; ?></div>
+            <?php endif; ?>
+        </div>
+    </div>
 
-    if (mysqli_stmt_execute($stmtUpdate)) {
-        $success = "Mesa desocupada con éxito.";
-    } else {
-        $error = "Hubo un error al desocupar la mesa.";
-    }
-
-    mysqli_stmt_close($stmtUpdate);
-    header("Location: ../public/gestion_mesas.php");
-    exit();
-}
+    <script src="../js/slider.js"></script>
+    <script src="../js/form_modal.js"></script>
+</body>
+</html>
