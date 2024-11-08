@@ -39,3 +39,4 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
     <script src="../js/validation_login.js"></script>
 </body>
 </html>
+
