@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificación de campos vacíos
     if (empty($codigo_empleado) || empty($pwd)) {
         $_SESSION['error'] = "Ambos campos son obligatorios.";
-        header("Location: ../public/login.php");
+        header("Location: ../index.php");
         exit();
     }
 
@@ -53,15 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $_SESSION['error'] = "Los datos introducidos son incorrectos.";
-            header("Location: ../public/login.php");
+            header("Location: ../index.php");
             exit();
         }
 
         // Cerrar la declaración
         mysqli_stmt_close($stmt);
     } else {
-        $_SESSION['error'] = "Error en la preparación de la consulta: " . mysqli_error($conn);
-        header("Location: ../public/login.php");
+        $_SESSION['error'] = "Error en la consulta: " . mysqli_error($conn);
+        header("Location: ../index.php");
         exit();
     }
 } else {
