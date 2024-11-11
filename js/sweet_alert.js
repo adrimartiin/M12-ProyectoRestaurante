@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
-            const action = button.name === 'desocupar' ? 'desocupar' : 'reservar';
-            const title = action === 'reservar' ? '¿Seguro quieres reservar esta mesa?' : '¿Seguro quieres desocupar esta mesa?';
-            const confirmButtonText = action === 'reservar' ? 'Sí, reservar' : 'Sí, desocupar';
-            const successTitle = action === 'reservar' ? 'Mesa reservada' : 'Mesa desocupada';
-            const successMessage = action === 'reservar' ? 'La mesa ha sido reservada con éxito.' : 'La mesa ha sido desocupada con éxito.';
+            const action = button.name === 'desocupar' ? 'desocupar' : 'ocupar';
+            const title = action === 'ocupar' ? '¿Seguro quieres ocupar esta mesa?' : '¿Seguro quieres desocupar esta mesa?';
+            const confirmButtonText = action === 'ocupar' ? 'Sí, ocupar' : 'Sí, desocupar';
+            const successTitle = action === 'ocupar' ? 'Mesa ocupada' : 'Mesa desocupada';
+            const successMessage = action === 'ocupar' ? 'La mesa ha sido ocupada con éxito.' : 'La mesa ha sido desocupada con éxito.';
 
             Swal.fire({
                 title: title,
