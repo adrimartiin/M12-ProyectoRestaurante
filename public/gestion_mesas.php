@@ -6,11 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
-
-$comedor='';
-
+$sala='';
 $mesas = [];
-
 include_once '../actions/gestion_salas.php';
 
 ?>
@@ -28,10 +25,6 @@ include_once '../actions/gestion_salas.php';
 </head>
 <body>
 
-
-
-
-
 <div class="navbar">
     <img src="../img/icon.png" class="icon">
     <div class="user-info">
@@ -44,8 +37,7 @@ include_once '../actions/gestion_salas.php';
         <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
-
-<?php if ($comedor): ?>
+<?php if ($sala): ?>
     <div class="slider-container">
         <button id="prevArrow" class="arrow-btn">&lt;</button>
         <form method="POST" action="">
@@ -89,30 +81,6 @@ include_once '../actions/gestion_salas.php';
         <button id="nextArrow" class="arrow-btn">&gt;</button>
     </div>
 <?php endif; ?>
-
-
-<!-- Popup de reserva -->
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="popup-close" onclick="closePopup()">&times;</span>
-        <h2>Reserva de Mesa</h2>
-        <form method="POST" action="">
-            <input type="hidden" name="mesa_id" id="mesa_id">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <label for="personas">Número de personas:</label>
-            <input type="number" name="personas" id="personas" required>
-            <button type="submit" name="reserva">Reservar</button>
-        </form>
-        <?php if (isset($error)): ?>
-            <div class="error"><?php echo $error; ?></div>
-        <?php elseif (isset($success)): ?>
-            <div class="success"><?php echo $success; ?></div>
-        <?php endif; ?>
-    </div>
-</div>
-
 <script src="../js/slider.js"></script>
-<script src="../js/form_modal.js"></script>
 </body>
 </html>
