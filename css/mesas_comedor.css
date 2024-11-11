@@ -7,15 +7,21 @@
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
+    margin-top: 80px; /* Espacio superior para que no se superponga la navbar */
 }
 
 .navbar {
-    background-color: #a36f53;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #a36f53; /* Color marrón de la navbar */
     color: #fff;
-    padding: 8px;
+    padding: 8px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000; /* Asegura que la navbar esté encima */
 }
 
 .icon {
@@ -70,6 +76,8 @@ body {
     margin: 20px auto;
     width: 90%;
     overflow: hidden;
+    z-index: 1; /* Asegura que el slider esté debajo de la navbar */
+    padding-top: 20px; /* Ajusta el espacio superior */
 }
 
 .slider {
@@ -80,7 +88,7 @@ body {
 
 .option {
     flex-shrink: 0;
-    width: 33.33%;
+    width: 25%;
     height: 550px;
     padding: 20px;
     text-align: center;
@@ -204,7 +212,6 @@ form input[type="text"], form input[type="number"] {
     padding: 10px;
     margin: 10px 0;
 }
-
 
 @media (max-width: 768px) {
     .slider {
