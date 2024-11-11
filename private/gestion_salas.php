@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
 
 // ====== PROCESO DE MANEJO PARA LA OCUPACIÓN DE LAS MESAS SEGÚN LA RESERVA ========
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserva'])) {
-    $usuario_id = $_SESSION['usuario'];
+    $usuario_id = $_SESSION['usuario_id'];
     $nombre = $_POST['nombre'];
     $mesa_id = $_POST['mesa_id']; // Ya no se requiere 'personas'
     
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserva'])) {
         mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
 
         // Inserta la reserva y actualiza el estado de la mesa
-        $queryReserva = "INSERT INTO tbl_ocupacion (id_cliente, id_mesa, fecha_hora_ocupacion) VALUES (?, ?, NOW())";
+        $queryReserva = "INSERT INTO tbl_ocupacion (id_mesa, fecha_hora_ocupacion) VALUES (?, NOW())";
         $stmtReserva = mysqli_prepare($conn, $queryReserva);
         mysqli_stmt_bind_param($stmtReserva, "ii", $usuario_id, $mesa_id);
         if (mysqli_stmt_execute($stmtReserva)) {

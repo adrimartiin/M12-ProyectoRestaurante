@@ -18,8 +18,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 <div class="navbar">
-    <img src="../img/icon.png" class="icon">
-    <div class="user-info">
+        <a href="../index.php">
+            <img src="../img/icon.png" class="icon" alt="Icono">
+        </a>
+        <div class="user-info">
         <div class="dropdown">
             <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
             <div class="dropdown-content">

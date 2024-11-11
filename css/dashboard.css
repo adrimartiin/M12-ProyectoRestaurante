@@ -42,6 +42,12 @@ body {
 .navbar .user-info .history-button:hover {
     background-color: #b97f52;
 }
+.right-link {
+    margin-left: auto;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
 
 .dropdown {
     position: relative;
