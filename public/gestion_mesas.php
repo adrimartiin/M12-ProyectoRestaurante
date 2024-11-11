@@ -10,6 +10,7 @@ $sala='';
 $mesas = [];
 include_once '../actions/gestion_salas.php';
 
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@ include_once '../actions/gestion_salas.php';
 <?php if ($sala): ?>
     <div class="slider-container">
         <button id="prevArrow" class="arrow-btn">&lt;</button>
-        <form method="POST" action="">
+        <form method="POST" action="../procesos/procGestionMesas.php?sala">
             <div class="slider" id="mesaSlider">
                 <?php 
                     $imagenesSillas = [
@@ -72,7 +73,7 @@ include_once '../actions/gestion_salas.php';
                         <?php if ($mesa['estado_mesa'] == 'ocupada'): ?>
                             <button type="submit" class="select-button" name="desocupar" value="<?php echo $mesa['id_mesa']; ?>">Desocupar</button>
                         <?php else: ?>
-                            <button type="button" class="select-button" onclick="openPopup(<?php echo $mesa['id_mesa']; ?>, <?php echo $mesa['num_sillas_mesa']; ?>)">Reservar</button>
+                            <button type="submit" name="ocupar" class="select-button" value="<?php echo $mesa['id_mesa']; ?>">Ocupar</button>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
@@ -84,3 +85,4 @@ include_once '../actions/gestion_salas.php';
 <script src="../js/slider.js"></script>
 </body>
 </html>
+
