@@ -1,6 +1,7 @@
     document.getElementById("codigo_empleado").onblur = validaCodigoCamarero;
     document.getElementById("pwd").onblur = validaPassword;
     document.getElementById("loginForm").onsubmit = validaForm;
+    
     function validaCodigoCamarero() {
     let codigo_empleado = document.getElementById("codigo_empleado").value;
     let input_empleado = document.getElementById("codigo_empleado");

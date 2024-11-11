@@ -14,6 +14,7 @@ if (!isset($_SESSION['loggedin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Ocupaciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/historial.css">
     <link rel="stylesheet" href="../css/gestion_mesas.css">
 </head>
@@ -41,7 +42,7 @@ if (!isset($_SESSION['loggedin'])) {
                 value="<?php echo isset($_GET['camarero']) ? htmlspecialchars($_GET['camarero']) : ''; ?>">
 
             <label for="mesa">Mesa:</label>
-            <input type="number" name="mesa" id="mesa" placeholder="ID de la mesa" 
+            <input type="number" name="mesa" id="mesa" placeholder="Numero de la mesa" 
                 value="<?php echo isset($_GET['mesa']) ? htmlspecialchars($_GET['mesa']) : ''; ?>">
 
             <label for="fecha">Fecha:</label>
