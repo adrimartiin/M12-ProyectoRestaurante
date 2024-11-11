@@ -6,11 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
-
-$comedor='';
-
+$sala='';
 $mesas = [];
-
 include_once '../actions/gestion_salas.php';
 
 ?>
@@ -69,8 +66,6 @@ include_once '../actions/gestion_salas.php';
                                 ?>
                                 <?php if ($imgSrc): ?>
                                     <img src="<?php echo $imgSrc; ?>" alt="Imagen de la mesa" class="mesa-img">
-                                <?php else: ?>
-                                    <img src="../mesas/mesa-default.png" alt="Imagen por defecto" class="mesa-img">
                                 <?php endif; ?>
                             </label>
                             <?php if ($mesa['estado_mesa'] == 'ocupada'): ?>
