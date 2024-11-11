@@ -1,13 +1,6 @@
--- SQLBook: Code
 CREATE DATABASE elmanantial;
 
 USE elmanantial;
-
-CREATE TABLE tbl_cliente (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    num_personas INT NOT NULL
-);
 
 CREATE TABLE tbl_sala (
     id_sala INT PRIMARY KEY,

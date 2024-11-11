@@ -34,10 +34,10 @@ if (!empty($_GET['mesa'])) {
 
 // Construir la consulta con los filtros
 $query = "SELECT o.id_ocupacion, c.nombre_camarero, cl.nombre AS cliente, cl.num_personas, m.id_mesa, o.fecha_hora_ocupacion, o.fecha_hora_desocupacion
-          FROM tbl_ocupacion o
-          JOIN tbl_camarero c ON o.id_camarero = c.id_camarero
-          JOIN tbl_cliente cl ON o.id_cliente = cl.id_cliente
-          JOIN tbl_mesa m ON o.id_mesa = m.id_mesa";
+        FROM tbl_ocupacion o
+        JOIN tbl_camarero c ON o.id_camarero = c.id_camarero
+        JOIN tbl_cliente cl ON o.id_cliente = cl.id_cliente
+        JOIN tbl_mesa m ON o.id_mesa = m.id_mesa";
 
 if (!empty($whereClauses)) {
     $query .= ' WHERE ' . implode(' AND ', $whereClauses);
@@ -57,45 +57,7 @@ $result = mysqli_stmt_get_result($stmt);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Ocupaciones</title>
-    <style>
-        /* Estilos */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            max-width: 800px;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        label, input, button {
-            margin: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-        th {
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/historial.css">
 </head>
 <body>
     <div class="container">
