@@ -7,10 +7,12 @@ if (!isset($_SESSION['loggedin'])) {
     exit();
 }
 
-$comedor = '';
+$comedor='';
+
 $mesas = [];
 
-include_once '../actions/gestion_comedor.php';
+include_once '../actions/gestion_salas.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +27,10 @@ include_once '../actions/gestion_comedor.php';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+
+
+
 
 <div class="navbar">
     <img src="../img/icon.png" class="icon">
@@ -83,6 +89,7 @@ include_once '../actions/gestion_comedor.php';
         <button id="nextArrow" class="arrow-btn">&gt;</button>
     </div>
 <?php endif; ?>
+
 
 <!-- Popup de reserva -->
 <div id="popup" class="popup">

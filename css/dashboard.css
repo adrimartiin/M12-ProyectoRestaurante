@@ -25,16 +25,32 @@ body {
 }
 
 .navbar .user-info span {
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
-.dropdown i {
-    margin-right: 25px;
+.navbar .user-info .history-button {
+    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #d4a373;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.navbar .user-info .history-button:hover {
+    background-color: #b97f52;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-left: 20px;
+}
+
+.dropdown i {
+    margin-right: 10px;
 }
 
 .dropdown-content {
@@ -74,25 +90,18 @@ body {
     margin: 0 10px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #ccc;
-    background-size: cover;
-    background-position: center;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    border: none;
     border-radius: 10px;
     border: 1px solid #d4a373;
-    border-radius: 10px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option h2 {
     margin: 0;
     padding: 10px;
-    text-decoration: none;
 }
 
 .button-container {
@@ -119,14 +128,20 @@ body {
 
 .option.terraza {
     background-image: url('../img/terraza4.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .option.comedor {
     background-image: url('../img/comedor.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .option.privadas {
     background-image: url('../img/privada.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .extra-buttons {

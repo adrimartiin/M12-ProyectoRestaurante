@@ -9,6 +9,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="../css/choose_privada.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
+
 <body>
 <div class="navbar">
     <img src="../img/icon.png" class="icon">
@@ -31,33 +33,34 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 </div>
 
-<form action="gestionar_mesas.php" method="post" class="options">
+<form action="gestion_mesas.php" method="post" class="options">
     <div class="option privada1">
         <h2>Sala Privada 1</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada_1" value="sala_privada_1" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="sala_privada_1" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada2">
         <h2>Sala Privada 2</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada_2" value="sala_privada_2" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="sala_privada_2" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada3">
         <h2>Sala Privada 3</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada_3" value="sala_privada_3" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="sala_privada_3" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option privada4">
         <h2>Sala Privada 4</h2>
         <div class="button-container">
-            <button type="submit" name="sala_privada_4" value="sala_privada_4" class="select-button">Seleccionar</button>
+            <button type="submit" name="sala" value="sala_privada_4" class="select-button">Seleccionar</button>
         </div>
     </div>
 </form>
 
-<script src="../js/dashboard.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
+
 </html>
