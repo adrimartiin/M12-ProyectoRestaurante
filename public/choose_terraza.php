@@ -5,6 +5,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../index.php");
     exit();
 }
+
+$_SESSION['sala']= '';
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <a href="../private/logout.php">Cerrar Sesión</a>
                 </div>
             </div>
-            <span><?php echo  $_SESSION['nombre_usuario']; ?></span>
+            <span><?php echo $_SESSION['nombre_usuario']; ?></span>
         </div>
     </div>
 </div>
@@ -54,7 +56,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 </form>
-
 <script src="../js/dashboard.js"></script>
 </body>
 
