@@ -31,7 +31,7 @@ CREATE TABLE tbl_ocupacion (
     fecha_hora_ocupacion DATETIME NOT NULL,
     fecha_hora_desocupacion DATETIME,
     FOREIGN KEY (id_mesa) REFERENCES tbl_mesa(id_mesa),
-    FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero)
+    FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero),
 );
 
 INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES
@@ -96,4 +96,5 @@ INSERT INTO tbl_mesa (id_sala, num_sillas_mesa, estado_mesa) VALUES
 INSERT INTO tbl_camarero (nombre_camarero, codigo_camarero, password_camarero) VALUES
 ('Christian Monrabal', 'C001', '$2a$12$NtbM8IYMhhkOlUl9uZ7XMenWrzmSEp6DcFfQijiMs/cmjwN2MP2bi'), -- qweQWE123
 ('Adrian Martin', 'C002', '$2a$12$DB3.O4aga98EH./zW9P9beKfklJkTcXMY0AnL3T6nheQhpM3usreO'), -- asdASD456
-('Alejandro González ', 'C003', '$2a$12$b509yhiIiUsHDKfE8HdNnea.1OEVhd4ukrnc54axOg5TDuDE2MNgC'); -- zxcZXC789
+('Alejandro González ', 'C003', '$2a$12$b509yhiIiUsHDKfE8HdNnea.1OEVhd4ukrnc54axOg5TDuDE2MNgC'),-- zxcZXC789
+('Oriol Godoy', 'C004', '$2b$12$v79zM4PPHJuyzcydT8SYmOMKT0VaBS.fQNgrLphkto3TRW00VDoYy'); -- qazQAZ000

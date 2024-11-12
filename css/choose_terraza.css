@@ -66,7 +66,7 @@ body {
     justify-content: space-between;
     margin: 20px auto;
     width: 80%;
-    height: 80%;
+    height: 75%;
 }
 
 .option {
@@ -118,15 +118,15 @@ body {
 }
 
 .option.terraza1 {
-    background-image: url('../img/terraza1.jpeg');
+    background-image: url('../img/salas/terraza1.jpeg');
 }
 
 .option.terraza2 {
-    background-image: url('../img/terraza2.jpeg');
+    background-image: url('../img/salas/terraza2.jpeg');
 }
 
 .option.terraza3 {
-    background-image: url('../img/terraza3.jpeg');
+    background-image: url('../img/salas/terraza3.jpeg');
 }
 
 .extra-buttons {

@@ -3,7 +3,7 @@ let currentIndex = 0;
 const slider = document.querySelector('.slider');
 const options = document.querySelectorAll('.option');
 const totalOptions = options.length;
-const itemsPerMove = 3;  // Mover 3 elementos a la vez
+const itemsPerMove = 3;
 
 const nextArrow = document.getElementById('nextArrow');
 const prevArrow = document.getElementById('prevArrow');

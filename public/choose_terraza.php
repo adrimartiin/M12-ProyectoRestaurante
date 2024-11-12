@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
@@ -23,7 +23,9 @@ $_SESSION['sala']= '';
 
 <body>
     <div class="navbar">
-        <img src="../img/icon.png" class="icon">
+        <a href="../index.php">
+            <img src="../img/icon.png" class="icon" alt="Icono">
+        </a>
         <div class="user-info">
             <div class="dropdown">
                 <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
