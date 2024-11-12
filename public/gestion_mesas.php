@@ -82,6 +82,5 @@ include_once '../private/gestion_salas.php';
     </div>
 <?php endif; ?>
 <script src="../js/slider.js"></script>
-<!-- <script src="../js/sweet_alert.js"></script> -->
 </body>
 </html>
