@@ -46,12 +46,12 @@ include_once '../private/gestion_salas.php';
             <div class="slider" id="mesaSlider">
                 <?php 
                     $imagenesSillas = [
-                        2 => "../src/mesa-2.png",
-                        3 => "../src/mesa-3.png",
-                        4 => "../src/mesa-4.png",
-                        5 => "../src/mesa-5.png",
-                        6 => "../src/mesa-6.png",
-                        10 => "../src/mesa-10.png"
+                        2 => "../img/mesas/mesa-2.png",
+                        3 => "../img/mesas/mesa-3.png",
+                        4 => "../img/mesas/mesa-4.png",
+                        5 => "../img/mesas/mesa-5.png",
+                        6 => "../img/mesas/mesa-6.png",
+                        10 => "../img/mesas/mesa-10.png"
                     ];
                 ?>
                 <?php foreach ($mesas as $mesa): ?>
