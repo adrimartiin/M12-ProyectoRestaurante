@@ -15,8 +15,8 @@ body {
 }
 
 .icon {
-    height: 60px;
-    width: 40px;
+    height: 90px;
+    width: 85px;
 }
 
 .navbar .user-info {
@@ -25,11 +25,11 @@ body {
 }
 
 .navbar .user-info span {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .navbar .user-info .history-button {
-    margin-left: 15px;
+    margin-left: 10px;
     padding: 5px 10px;
     background-color: #d4a373;
     color: white;
@@ -42,6 +42,7 @@ body {
 .navbar .user-info .history-button:hover {
     background-color: #b97f52;
 }
+
 .right-link {
     margin-left: auto;
     text-decoration: none;
@@ -52,7 +53,7 @@ body {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .dropdown i {
@@ -64,7 +65,7 @@ body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -108,7 +109,7 @@ body {
 .option h2 {
     margin: 0;
     padding: 10px;
-}
+    }
 
 .button-container {
     margin-top: 30px;
@@ -171,6 +172,34 @@ body {
     background-color: #b97f52;
 }
 
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 10px;
+    color: white;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #a36f53;
+    padding: 10px;
+    width: 100%;
+}
+
+.mobile-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid #d4a373;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
 @media (max-width: 768px) {
     .options {
         flex-direction: column;
@@ -193,6 +222,18 @@ body {
     }
 
     .navbar .user-info {
-        margin-top: 10px;
+        display: none;
+    }
+
+    .right-link {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile-nav.active {
+        display: flex;
     }
 }

@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     height: 100vh;
     margin-top: 80px;
+    overflow-y: hidden;
 }
 
 .navbar {
@@ -25,8 +26,8 @@ body {
 }
 
 .icon {
-    height: 60px;
-    width: 40px;
+    height: 90px;
+    width: 85px;
 }
 
 .navbar .user-info {
