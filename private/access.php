@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        mysqli_stmt_close($stmt);
+        // mysqli_stmt_close($stmt);
     } else {
         $_SESSION['error'] = "Error en la consulta: " . mysqli_error($conn);
         header("Location: ../index.php");
