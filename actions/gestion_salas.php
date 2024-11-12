@@ -5,10 +5,12 @@
         header("Location: ../index.php");
         exit();
     }
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sala'])) {
         // Recoge la sala seleccionada por POST 
-        $sala = $_POST['sala'];
-        // if(empty($_SESSION['sala'])){ $_SESSION['sala'] = $sala};
+        $sala = $_SESSION['sala'];
+        // $_SESSION['sala'] = $sala;
+        // var_dump($_SESSION['sala']);
+        // die();
         try {
             // ====== QUERY PARA OBTENER EL ID DE LA SALA ========
             $query = "SELECT id_sala FROM tbl_sala WHERE nombre_sala = ?"; //se obtiene el id a partir del nombre de la sala (este lo enviamos desde el choose pertinente)
