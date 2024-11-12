@@ -31,7 +31,7 @@ CREATE TABLE tbl_ocupacion (
     fecha_hora_ocupacion DATETIME NOT NULL,
     fecha_hora_desocupacion DATETIME,
     FOREIGN KEY (id_mesa) REFERENCES tbl_mesa(id_mesa),
-    FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero),
+    FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero)
 );
 
 INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES

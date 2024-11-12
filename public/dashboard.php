@@ -19,20 +19,27 @@ if (!isset($_SESSION['loggedin'])) {
 </head>
 <body>
 <div class="navbar">
-        <a href="../index.php">
-            <img src="../img/icon.png" class="icon" alt="Icono">
-        </a>
-        <a href="./historial.php" class="right-link">Historial</a>
-        <div class="user-info">
-            <div class="dropdown">
-                <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
-                <div class="dropdown-content">
-                    <a href="../private/logout.php">Cerrar Sesión</a>
-                </div>
+    <a href="../index.php">
+        <img src="../img/icon.png" class="icon" alt="Icono">
+    </a>
+    <a href="./historial.php" class="right-link">Historial</a>
+    <div class="user-info">
+        <div class="dropdown">
+            <i class="fas fa-caret-down" style="font-size: 16px; margin-right: 10px;"></i>
+            <div class="dropdown-content">
+                <a href="../private/logout.php">Cerrar Sesión</a>
             </div>
-            <span><?php echo $_SESSION['nombre_usuario']; ?></span>
         </div>
+        <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
+    <div class="hamburger" id="hamburger-icon">
+        &#9776;
+    </div>
+</div>
+<div class="mobile-nav" id="mobile-nav">
+    <a href="./historial.php">Historial</a>
+    <a href="#"><?php echo $_SESSION['nombre_usuario']; ?></a>
+    <a href="../private/logout.php">Cerrar Sesión</a>
 </div>
 
 <div class="options">
@@ -57,5 +64,6 @@ if (!isset($_SESSION['loggedin'])) {
 </div>
 
 <script src="../js/dashboard.js"></script>
+<script src="../js/navbar.js"></script>
 </body>
 </html>
