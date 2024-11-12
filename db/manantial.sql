@@ -28,12 +28,10 @@ CREATE TABLE tbl_ocupacion (
     id_ocupacion INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_mesa INT NOT NULL,
     id_camarero INT NOT NULL,
-    id_cliente INT NOT NULL,
     fecha_hora_ocupacion DATETIME NOT NULL,
     fecha_hora_desocupacion DATETIME,
     FOREIGN KEY (id_mesa) REFERENCES tbl_mesa(id_mesa),
     FOREIGN KEY (id_camarero) REFERENCES tbl_camarero(id_camarero),
-    FOREIGN KEY (id_cliente) REFERENCES tbl_cliente(id_cliente)
 );
 
 INSERT INTO tbl_sala (id_sala, nombre_sala, tipo_sala, capacidad_total) VALUES
