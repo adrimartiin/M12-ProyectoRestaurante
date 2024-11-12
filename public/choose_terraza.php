@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <a href="../private/logout.php">Cerrar Sesión</a>
                 </div>
             </div>
-            <span><?php echo  $_SESSION['nombre_usuario']; ?></span>
+            <span><?php echo $_SESSION['nombre_usuario']; ?></span>
         </div>
     </div>
 </div>

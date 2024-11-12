@@ -57,24 +57,26 @@ if (!isset($_SESSION['loggedin'])) {
             <p class="red"><?php echo $noResultsMessage; ?></p>
         <?php endif; ?>
 
-        <table>
-            <tr>
-                <th>ID Ocupación</th>
-                <th>Camarero</th>
-                <th>Mesa</th>
-                <th>Fecha Ocupación</th>
-                <th>Fecha Desocupación</th>
-            </tr>
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <?php if ($result && mysqli_num_rows($result) > 0): ?>
+            <table>
                 <tr>
-                    <td><?= htmlspecialchars($row['id_ocupacion']) ?></td>
-                    <td><?= htmlspecialchars($row['nombre_camarero']) ?></td>
-                    <td><?= htmlspecialchars($row['id_mesa']) ?></td>
-                    <td><?= htmlspecialchars($row['fecha_hora_ocupacion']) ?></td>
-                    <td><?= htmlspecialchars($row['fecha_hora_desocupacion'] ?? 'Sin desocupar') ?></td>
+                    <th>ID Ocupación</th>
+                    <th>Camarero</th>
+                    <th>Mesa</th>
+                    <th>Fecha Ocupación</th>
+                    <th>Fecha Desocupación</th>
                 </tr>
-            <?php endwhile; ?>
-        </table>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row['id_ocupacion']) ?></td>
+                        <td><?= htmlspecialchars($row['nombre_camarero']) ?></td>
+                        <td><?= htmlspecialchars($row['id_mesa']) ?></td>
+                        <td><?= htmlspecialchars($row['fecha_hora_ocupacion']) ?></td>
+                        <td><?= htmlspecialchars($row['fecha_hora_desocupacion'] ?? 'Sin desocupar') ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
+        <?php endif; ?>
     </div>
     <script src="../js/validation_historial.js"></script>
 </body>
