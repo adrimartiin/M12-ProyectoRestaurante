@@ -38,19 +38,19 @@ if (!isset($_SESSION['loggedin'])) {
 
 <form action="gestion_mesas.php" method="post" class="options">
     <div class="option terraza1">
-        <h2>Terraza 1</h2>
+        <h2>Terraza principal</h2>
         <div class="button-container">
             <button type="submit" name="sala" value="terraza_principal" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza2">
-        <h2>Terraza 2</h2>
+        <h2>Terraza secundaria</h2>
         <div class="button-container">
             <button type="submit" name="sala" value="terraza_secundaria" class="select-button">Seleccionar</button>
         </div>
     </div>
     <div class="option terraza3">
-        <h2>Terraza 3</h2>
+        <h2>Terraza terciaria</h2>
         <div class="button-container">
             <button type="submit" name="sala" value="terraza_terciaria" class="select-button">Seleccionar</button>
         </div>

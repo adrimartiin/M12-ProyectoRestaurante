@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -13,20 +15,34 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 30px;
+    color: #333;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-label, input {
-    margin: 5px;
+label {
     font-size: 14px;
+    color: #333;
+}
+
+input, select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #b97f52;
+    outline: none;
 }
 
 button[type="submit"] {
@@ -49,6 +65,13 @@ button[type="submit"]:active {
     background-color: #b97f52;
 }
 
+#form_error {
+    color: red;
+    font-size: 14px;
+    display: none;
+    margin-top: 10px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -59,13 +82,26 @@ th, td {
     padding: 10px;
     border: 1px solid #ccc;
     text-align: center;
+    font-size: 14px;
 }
 
 th {
     background-color: #333;
-    color: #fff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 .red {
     color: red;
+}
+
+.error-border {
+    border-color: red;
 }
