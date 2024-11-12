@@ -25,8 +25,7 @@ include_once '../db/conexion.php';
             $error = $e->getMessage();
             echo "ERROR: " . $error;
         }
-        header("Location: ../public/gestion_mesas.php");
-        
+        header("Location: ../public/dashboard.php");
         }
         
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['desocupar'])) {
@@ -40,6 +39,6 @@ include_once '../db/conexion.php';
             $error = "Hubo un error al desocupar la mesa.";
         }
         mysqli_stmt_close($stmtUpdate);
-        header("Location: ../public/gestion_mesas.php");
+        header("Location: ../public/dashboard.php");
         
     }

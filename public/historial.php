@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../private/search_historial.php';
+include_once '../private/filter_historial.php';
 
 if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");

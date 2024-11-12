@@ -24,11 +24,11 @@ if (!empty($_GET['fecha'])) {
     $params[] = $_GET['fecha'];
     $types .= 's';
 }
-
-$query = "SELECT o.id_ocupacion, c.nombre_camarero, m.id_mesa, o.fecha_hora_ocupacion, o.fecha_hora_desocupacion
+$query = "SELECT o.id_ocupacion, c.nombre_camarero, m.id_mesa, m.estado_mesa, s.nombre_sala, o.fecha_hora_ocupacion, o.fecha_hora_desocupacion
         FROM tbl_ocupacion o
         JOIN tbl_camarero c ON o.id_camarero = c.id_camarero
-        JOIN tbl_mesa m ON o.id_mesa = m.id_mesa";
+        JOIN tbl_mesa m ON o.id_mesa = m.id_mesa
+        JOIN tbl_sala s ON m.id_sala = s.id_sala";
 
 if (!empty($whereClauses)) {
     $query .= ' WHERE ' . implode(' AND ', $whereClauses);
