@@ -1,15 +1,18 @@
 <?php
 session_start();
-include_once '../db/conexion.php';
-
 if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
-$sala='';
+include_once '../db/conexion.php';
+// $_SESSION['sala']= '';
+if(empty($_SESSION['sala'])){
+    $_SESSION['sala'] = $_POST['sala'];
+    // var_dump($_SESSION['sala']);
+    // die();
+}
 $mesas = [];
 include_once '../actions/gestion_salas.php';
-
 
 ?>
 
@@ -38,10 +41,9 @@ include_once '../actions/gestion_salas.php';
         <span><?php echo $_SESSION['nombre_usuario']; ?></span>
     </div>
 </div>
-<?php if ($sala): ?>
     <div class="slider-container">
         <button id="prevArrow" class="arrow-btn">&lt;</button>
-        <form method="POST" action="../procesos/procGestionMesas.php?sala">
+        <form method="POST" action="../procesos/procGestionMesas.php">
             <div class="slider" id="mesaSlider">
                 <?php 
                     $imagenesSillas = [
@@ -81,7 +83,6 @@ include_once '../actions/gestion_salas.php';
         </form>
         <button id="nextArrow" class="arrow-btn">&gt;</button>
     </div>
-<?php endif; ?>
 <script src="../js/slider.js"></script>
 </body>
 </html>
