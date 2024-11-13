@@ -1,13 +1,14 @@
     document.getElementById("codigo_empleado").onblur = validaCodigoCamarero;
     document.getElementById("pwd").onblur = validaPassword;
     document.getElementById("loginForm").onsubmit = validaForm;
+    
     function validaCodigoCamarero() {
     let codigo_empleado = document.getElementById("codigo_empleado").value;
     let input_empleado = document.getElementById("codigo_empleado");
     let codigoError = document.getElementById("codigo_empleado_error");
 
     if(codigo_empleado === "" || codigo_empleado === null){
-    codigoError.textContent = "El código de empleado es obligatorio.";
+        codigoError.textContent = "El código de empleado es obligatorio.";
         input_empleado.classList.add("error-border");
         return false;
     } else if(codigo_empleado.length < 4){

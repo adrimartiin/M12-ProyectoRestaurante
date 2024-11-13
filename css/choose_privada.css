@@ -15,49 +15,29 @@ body {
 }
 
 .icon {
-    height: 90px;
-    width: 85px;
+    height: 60px;
+    width: 40px;
 }
 
 .navbar .user-info {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .navbar .user-info span {
-    margin-left: 10px;
+    margin-left: 40px;
+    margin-right: 20px;
 }
 
-.navbar .user-info .history-button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #d4a373;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.navbar .user-info .history-button:hover {
-    background-color: #b97f52;
-}
-
-.right-link {
-    margin-left: auto;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
+.dropdown i {
+    margin-right: 25px;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-left: 10px;
-}
-
-.dropdown i {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .dropdown-content {
@@ -65,7 +45,7 @@ body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -89,7 +69,7 @@ body {
     justify-content: space-between;
     margin: 20px auto;
     width: 80%;
-    height: 80%;
+    height: 75%;
 }
 
 .option {
@@ -97,19 +77,26 @@ body {
     margin: 0 10px;
     padding: 20px;
     text-align: center;
+    border: 1px solid #ccc;
+    background-size: cover;
+    background-position: center;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
+    border: none;
     border-radius: 10px;
     border: 1px solid #d4a373;
+    border-radius: 10px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option h2 {
     margin: 0;
     padding: 10px;
-    }
+    text-decoration: none;
+}
 
 .button-container {
     margin-top: 30px;
@@ -129,27 +116,22 @@ body {
     transition: background-color 0.3s;
 }
 
-.option .select-button:hover {
-    background-color: #b97f52;
+.option.privada1 {
+    background-image: url('../img/salas/privada1.jpeg');
 }
 
-.option.terraza {
-    background-image: url('../img/salas/terraza4.jpeg');
-    background-size: cover;
-    background-position: center;
+.option.privada2 {
+    background-image: url('../img/salas/privada2.jpeg');
 }
 
-.option.comedor {
-    background-image: url('../img/salas/comedor.jpeg');
-    background-size: cover;
-    background-position: center;
+.option.privada3 {
+    background-image: url('../img/salas/privada3.jpeg');
 }
 
-.option.privadas {
-    background-image: url('../img/salas/privada.jpg');
-    background-size: cover;
-    background-position: center;
+.option.privada4 {
+    background-image: url('../img/salas/privada4.jpeg');
 }
+
 
 .extra-buttons {
     display: none;
@@ -170,34 +152,6 @@ body {
 
 .extra-buttons button:hover {
     background-color: #b97f52;
-}
-
-.hamburger {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    margin-left: auto;
-    padding: 10px;
-    color: white;
-}
-
-.mobile-nav {
-    display: none;
-    flex-direction: column;
-    background-color: #a36f53;
-    padding: 10px;
-    width: 100%;
-}
-
-.mobile-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-bottom: 1px solid #d4a373;
-}
-
-.mobile-nav a:last-child {
-    border-bottom: none;
 }
 
 @media (max-width: 768px) {
@@ -222,18 +176,6 @@ body {
     }
 
     .navbar .user-info {
-        display: none;
-    }
-
-    .right-link {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .mobile-nav.active {
-        display: flex;
+        margin-top: 10px;
     }
 }
