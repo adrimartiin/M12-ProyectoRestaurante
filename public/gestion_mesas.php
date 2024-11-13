@@ -1,7 +1,5 @@
 <?php
 session_start();
-include_once '../db/conexion.php';
-
 if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
@@ -42,7 +40,7 @@ include_once '../private/gestion_salas.php';
 <?php if ($sala): ?>
     <div class="slider-container">
         <button id="prevArrow" class="arrow-btn">&lt;</button>
-        <form method="POST" action="../private/proccess_mesas.php?sala">
+        <form method="POST" action="../private/proccess_mesas.php">
             <div class="slider" id="mesaSlider">
                 <?php 
                     $imagenesSillas = [

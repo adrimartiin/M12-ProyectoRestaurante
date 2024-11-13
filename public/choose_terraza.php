@@ -5,6 +5,8 @@ if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit();
 }
+
+$_SESSION['sala']= '';
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +58,6 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
     </div>
 </form>
-
 <script src="../js/dashboard.js"></script>
 </body>
 
