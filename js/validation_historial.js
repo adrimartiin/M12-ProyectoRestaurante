@@ -6,8 +6,9 @@ function validaForm(event) {
     let camarero = document.getElementById("camarero").value;
     let mesa = document.getElementById("mesa").value;
     let fecha = document.getElementById("fecha").value;
+    let sala = document.getElementById("sala").value;
 
-    if (camarero === "" && mesa === "" && fecha === "") {
+    if (camarero === "" && mesa === "" && fecha === "" && sala === "") {
         let formError = document.getElementById("form_error");
         formError.textContent = "Debe completar al menos un campo.";
         formError.style.display = "block";
@@ -21,8 +22,9 @@ function validaForm(event) {
     let validCamarero = validaCampo("camarero");
     let validMesa = validaCampo("mesa");
     let validFecha = validaCampo("fecha");
+    let validSala = validaCampo("sala");
 
-    if (validCamarero || validMesa || validFecha) {
+    if (validCamarero || validMesa || validFecha || validSala) {
         document.getElementById("filterForm").submit();
     }
 }

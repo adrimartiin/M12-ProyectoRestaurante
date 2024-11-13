@@ -25,6 +25,12 @@ if (!empty($_GET['fecha'])) {
     $types .= 's';
 }
 
+if (!empty($_GET['sala'])) {
+    $filters[] = 's.id_sala = ?';
+    $params[] = $_GET['sala'];
+    $types .= 'i';
+}
+
 if (!empty($filters)) {
     $query = "SELECT o.id_ocupacion, c.nombre_camarero, m.id_mesa, m.estado_mesa, s.nombre_sala, o.fecha_hora_ocupacion, o.fecha_hora_desocupacion
             FROM tbl_ocupacion o
