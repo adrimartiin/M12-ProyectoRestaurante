@@ -34,13 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sala'])) {
         mysqli_stmt_execute($stmtVerCapacidad);
         $resultCapacidad = mysqli_stmt_get_result($stmtVerCapacidad);
         if ($row = mysqli_fetch_assoc($resultCapacidad)) {
-            // Mostrar el valor de capacidad_total en pantalla
             echo "<h2 style='text-align: center;'>Capacidad total de la sala: " . $row['capacidad_total'] . "</h2>";
         } else {
             echo "No se encontró la sala especificada.";
         }
 
-        // Cerrar los statements
         mysqli_stmt_close($stmtVerCapacidad);
         mysqli_stmt_close($stmt);
     } catch (Exception $e) {
